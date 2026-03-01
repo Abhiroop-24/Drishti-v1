@@ -1,0 +1,172 @@
+17:31:30 [drishti.main] INFO: ============================================================
+17:31:30 [drishti.main] INFO:   DRISHTI - Visual Assistance System
+17:31:30 [drishti.main] INFO:   Starting up...
+17:31:30 [drishti.main] INFO: ============================================================
+17:31:30 [drishti.main] INFO: Initializing components...
+17:31:30 [drishti.stream] INFO: Stream receiver configured: udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000
+17:31:30 [drishti.yolo] INFO: Loading YOLO model: yolov8n.pt
+17:31:30 [drishti.yolo] INFO: YOLO model loaded successfully
+17:31:30 [drishti.blip] INFO: BLIP will use device: cuda
+17:31:30 [drishti.tts] INFO: TTS engine initialized: gtts
+17:31:30 [drishti.main] INFO: Checking Pi connection...
+17:31:30 [drishti.pi_comm] INFO: Connecting to Pi at 10.42.0.50...
+17:31:31 [drishti.pi_comm] INFO: Connected to Pi successfully
+17:31:32 [drishti.pi_comm] INFO: Pi hostname: raspberrypi
+17:31:32 [drishti.main] INFO: ✓ Pi connected
+17:31:32 [drishti.main] INFO: Starting video stream receiver...
+17:31:32 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+17:31:32 [drishti.stream] INFO: Stream receiver started (waiting for camera UDP packets…)
+17:31:32 [drishti.main] INFO: Preloading BLIP model in background...
+17:31:32 [drishti.blip] INFO: Loading BLIP model: Salesforce/blip-image-captioning-large
+17:31:32 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+17:31:32 [drishti.cmd_server] INFO: Command server listening on port 9090
+17:31:32 [drishti.main] INFO: ✓ DRISHTI is ready!
+17:31:32 [drishti.main] INFO: ────────────────────────────────────────
+17:31:32 [drishti.main] INFO: Controls (keyboard):
+17:31:32 [drishti.main] INFO:   1 / Space : Capture & Describe
+17:31:32 [drishti.main] INFO:   2 / M     : Cycle BLIP mode
+17:31:32 [drishti.main] INFO:   3 / A     : Toggle YOLO alerts
+17:31:32 [drishti.main] INFO:   Q / ESC   : Quit
+17:31:32 [drishti.main] INFO: ────────────────────────────────────────
+17:31:34 [drishti.stream] INFO: ✓ First frame received — stream is live! (800×600)
+17:31:36 [drishti.blip] INFO: BLIP model loaded on cuda
+17:31:36 [drishti.main] INFO: ✓ BLIP model preloaded
+17:31:39 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 37878)
+17:31:39 [drishti.main] INFO: Command received: toggle_yolo
+17:31:39 [drishti.yolo] INFO: YOLO alerts enabled
+17:31:39 [drishti.main] INFO: 🎯 YOLO people-detection activated
+17:31:39 [drishti.tts] INFO: Synthesizing speech (49 chars)...
+17:31:39 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+17:31:40 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+17:31:40 [drishti.pi_comm] INFO: Audio transferred, playing...
+17:31:40 [drishti.main] INFO: 👤 YOLO: Person nearby at 2.0 meters, to your center.
+17:31:40 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+17:31:40 [drishti.pi_comm] INFO: Audio playback started on Pi
+17:31:40 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771761700.mp3
+17:31:40 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771761700.mp3
+17:31:40 [drishti.pi_comm] INFO: Audio transferred, playing...
+17:31:41 [drishti.pi_comm] INFO: Audio playback started on Pi
+17:31:50 [drishti.main] INFO: 👤 YOLO: 2 people nearby. 1 more person detected further away.
+17:31:51 [drishti.tts] INFO: Synthesizing speech (53 chars)...
+17:31:51 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771761711.mp3
+17:31:51 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771761711.mp3
+17:31:55 [drishti.pi_comm] INFO: Audio transferred, playing...
+17:31:55 [drishti.pi_comm] INFO: Audio playback started on Pi
+17:31:56 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 49628)
+17:31:56 [drishti.main] INFO: Command received: capture
+17:31:56 [drishti.main] INFO: 📸 Capturing frame...
+17:31:56 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+17:31:56 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_173156.jpg
+17:31:56 [drishti.main] INFO: 🧠 Generating detailed scene description...
+17:31:56 [drishti.blip] INFO: Generating 'default' description...
+17:31:56 [drishti.blip] INFO: Description (310 chars): A woman in a white shirt sitting at a table with a cell phone in her hand. 4 people detected. Person 1: 1.79999995231628
+17:31:56 [drishti.main] INFO: Description: A woman in a white shirt sitting at a table with a cell phone in her hand. 4 people detected. Person 1: 1.7999999523162842 meters to your right. Nearby. Person 2: 1.7999999523162842 meters to your left. Nearby. Person 3: 2.5 meters to your left. Nearby. Person 4: 2.799999952316284 meters to your left. Nearby.
+17:31:56 [drishti.main] INFO: 🔊 Converting to speech...
+17:31:56 [drishti.tts] INFO: Synthesizing speech (310 chars)...
+17:32:03 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_173156.mp3
+17:32:03 [drishti.main] INFO: 📤 Sending audio to Pi...
+17:32:03 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_173156.mp3
+17:32:03 [drishti.pi_comm] INFO: Audio transferred, playing...
+17:32:04 [drishti.pi_comm] INFO: Audio playback started on Pi
+17:32:04 [drishti.main] INFO: ✓ Audio playing on Pi
+17:32:05 [drishti.main] INFO: 👤 YOLO: 2 people nearby. 1 more person detected further away.
+17:32:05 [drishti.tts] INFO: Synthesizing speech (53 chars)...
+17:32:06 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771761725.mp3
+17:32:06 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771761725.mp3
+17:32:06 [drishti.pi_comm] INFO: Audio transferred, playing...
+17:32:06 [drishti.pi_comm] INFO: Audio playback started on Pi
+17:32:07 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 47136)
+17:32:07 [drishti.main] INFO: Command received: toggle_yolo
+17:32:07 [drishti.yolo] INFO: YOLO alerts disabled
+17:32:07 [drishti.main] INFO: 🎯 YOLO people-detection deactivated
+17:32:07 [drishti.tts] INFO: Synthesizing speech (21 chars)...
+17:32:07 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+17:32:07 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+17:32:07 [drishti.pi_comm] INFO: Audio transferred, playing...
+17:32:08 [drishti.pi_comm] INFO: Audio playback started on Pi
+17:32:13 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 47140)
+17:32:13 [drishti.main] INFO: Command received: capture
+17:32:13 [drishti.main] WARNING: Already processing a capture
+17:33:00 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 50484)
+17:33:00 [drishti.main] INFO: Command received: toggle_yolo
+17:33:00 [drishti.yolo] INFO: YOLO alerts enabled
+17:33:00 [drishti.main] INFO: 🎯 YOLO people-detection activated
+17:33:00 [drishti.tts] INFO: Synthesizing speech (49 chars)...
+17:33:00 [drishti.main] INFO: 👤 YOLO: Person nearby at 1.7000000476837158 meters, to your left.
+17:33:00 [drishti.tts] INFO: Synthesizing speech (57 chars)...
+17:33:00 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+17:33:00 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+17:33:00 [drishti.pi_comm] INFO: Audio transferred, playing...
+17:33:01 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771761780.mp3
+17:33:01 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771761780.mp3
+17:33:01 [drishti.pi_comm] INFO: Audio playback started on Pi
+17:33:01 [drishti.pi_comm] INFO: Audio transferred, playing...
+17:33:01 [drishti.pi_comm] INFO: Audio playback started on Pi
+17:33:14 [drishti.main] INFO: 👤 YOLO: Person nearby at 2.4000000953674316 meters, to your right.
+17:33:14 [drishti.tts] INFO: Synthesizing speech (58 chars)...
+17:33:15 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771761794.mp3
+17:33:15 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771761794.mp3
+17:33:15 [drishti.pi_comm] INFO: Audio transferred, playing...
+17:33:15 [drishti.pi_comm] INFO: Audio playback started on Pi
+17:33:49 [drishti.main] INFO: 👤 YOLO: 2 more people detected further away.
+17:33:49 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+17:33:50 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771761829.mp3
+17:33:50 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771761829.mp3
+17:33:50 [drishti.pi_comm] INFO: Audio transferred, playing...
+17:33:50 [drishti.pi_comm] INFO: Audio playback started on Pi
+17:33:52 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 41638)
+17:33:52 [drishti.main] INFO: Command received: toggle_yolo
+17:33:52 [drishti.yolo] INFO: YOLO alerts disabled
+17:33:52 [drishti.main] INFO: 🎯 YOLO people-detection deactivated
+17:33:52 [drishti.tts] INFO: Synthesizing speech (21 chars)...
+17:33:52 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+17:33:52 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+17:33:52 [drishti.pi_comm] INFO: Audio transferred, playing...
+17:33:53 [drishti.pi_comm] INFO: Audio playback started on Pi
+17:33:53 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 41640)
+17:33:53 [drishti.main] INFO: Command received: capture
+17:33:53 [drishti.main] INFO: 📸 Capturing frame...
+17:33:53 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+17:33:53 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_173353.jpg
+17:33:53 [drishti.main] INFO: 🧠 Generating detailed scene description...
+17:33:53 [drishti.blip] INFO: Generating 'default' description...
+17:33:54 [drishti.blip] INFO: Description (46 chars): A man and a woman standing next to each other.
+17:33:54 [drishti.main] INFO: Description: A man and a woman standing next to each other.
+17:33:54 [drishti.main] INFO: 🔊 Converting to speech...
+17:33:54 [drishti.tts] INFO: Synthesizing speech (46 chars)...
+17:33:54 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_173353.mp3
+17:33:54 [drishti.main] INFO: 📤 Sending audio to Pi...
+17:33:54 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_173353.mp3
+17:33:54 [drishti.pi_comm] INFO: Audio transferred, playing...
+17:33:55 [drishti.pi_comm] INFO: Audio playback started on Pi
+17:33:55 [drishti.main] INFO: ✓ Audio playing on Pi
+17:34:12 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 51210)
+17:34:12 [drishti.main] INFO: Command received: capture
+17:34:12 [drishti.main] INFO: 📸 Capturing frame...
+17:34:12 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+17:34:12 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_173412.jpg
+17:34:12 [drishti.main] INFO: 🧠 Generating detailed scene description...
+17:34:12 [drishti.blip] INFO: Generating 'default' description...
+17:34:13 [drishti.blip] INFO: Description (56 chars): A man and a woman standing next to each other in a room.
+17:34:13 [drishti.main] INFO: Description: A man and a woman standing next to each other in a room.
+17:34:13 [drishti.main] INFO: 🔊 Converting to speech...
+17:34:13 [drishti.tts] INFO: Synthesizing speech (56 chars)...
+17:34:13 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_173412.mp3
+17:34:13 [drishti.main] INFO: 📤 Sending audio to Pi...
+17:34:13 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_173412.mp3
+17:34:13 [drishti.pi_comm] INFO: Audio transferred, playing...
+17:34:14 [drishti.pi_comm] INFO: Audio playback started on Pi
+17:34:14 [drishti.main] INFO: ✓ Audio playing on Pi
+17:34:44 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 40842)
+17:34:44 [drishti.main] INFO: Command received: cycle_mode
+17:34:44 [drishti.blip] INFO: Mode changed to: short
+17:34:44 [drishti.main] INFO: 🔄 Mode changed to: short
+17:34:44 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+17:34:45 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+17:34:45 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+17:34:45 [drishti.pi_comm] INFO: Audio transferred, playing...
+17:34:45 [drishti.pi_comm] INFO: Audio playback started on Pi
+17:35:37 [drishti.main] INFO: Shutting down DRISHTI...
+17:35:37 [drishti.stream] INFO: Stream receiver stopped
+17:35:37 [drishti.pi_comm] INFO: Disconnected from Pi
+17:35:37 [drishti.main] INFO: DRISHTI shutdown complete

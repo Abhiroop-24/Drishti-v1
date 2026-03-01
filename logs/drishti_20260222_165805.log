@@ -1,0 +1,34 @@
+16:58:05 [drishti.main] INFO: ============================================================
+16:58:05 [drishti.main] INFO:   DRISHTI - Visual Assistance System
+16:58:05 [drishti.main] INFO:   Starting up...
+16:58:05 [drishti.main] INFO: ============================================================
+16:58:05 [drishti.main] INFO: Initializing components...
+16:58:05 [drishti.stream] INFO: Stream receiver configured: udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000
+16:58:05 [drishti.yolo] INFO: Loading YOLO model: yolov8n.pt
+16:58:05 [drishti.yolo] INFO: YOLO model loaded successfully
+16:58:05 [drishti.blip] INFO: BLIP will use device: cuda
+16:58:05 [drishti.tts] INFO: TTS engine initialized: gtts
+16:58:05 [drishti.main] INFO: Checking Pi connection...
+16:58:05 [drishti.pi_comm] INFO: Connecting to Pi at 10.42.0.50...
+16:58:06 [drishti.pi_comm] INFO: Connected to Pi successfully
+16:58:06 [drishti.pi_comm] INFO: Pi hostname: raspberrypi
+16:58:06 [drishti.main] INFO: ✓ Pi connected
+16:58:06 [drishti.main] INFO: Starting video stream receiver...
+16:58:06 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+16:58:06 [drishti.stream] INFO: Stream receiver started (waiting for camera UDP packets…)
+16:58:06 [drishti.main] INFO: Preloading BLIP model in background...
+16:58:06 [drishti.blip] INFO: Loading BLIP model: Salesforce/blip-image-captioning-large
+16:58:06 [drishti.cmd_server] INFO: Command server listening on port 9090
+16:58:06 [drishti.main] INFO: ✓ DRISHTI is ready!
+16:58:06 [drishti.main] INFO: ────────────────────────────────────────
+16:58:06 [drishti.main] INFO: Controls (keyboard):
+16:58:06 [drishti.main] INFO:   1 / Space : Capture & Describe
+16:58:06 [drishti.main] INFO:   2 / M     : Cycle BLIP mode
+16:58:06 [drishti.main] INFO:   3 / A     : Toggle YOLO alerts
+16:58:06 [drishti.main] INFO:   Q / ESC   : Quit
+16:58:06 [drishti.main] INFO: ────────────────────────────────────────
+16:58:06 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+16:58:09 [drishti.stream] INFO: ✓ First frame received — stream is live! (800×600)
+16:58:11 [drishti.blip] INFO: BLIP model loaded on cuda
+16:58:11 [drishti.main] INFO: ✓ BLIP model preloaded
+16:58:12 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38156)

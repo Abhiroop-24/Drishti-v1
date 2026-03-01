@@ -1,0 +1,43 @@
+17:22:21 [drishti.main] INFO: ============================================================
+17:22:21 [drishti.main] INFO:   DRISHTI - Visual Assistance System
+17:22:21 [drishti.main] INFO:   Starting up...
+17:22:21 [drishti.main] INFO: ============================================================
+17:22:21 [drishti.main] INFO: Initializing components...
+17:22:21 [drishti.stream] INFO: Stream receiver configured: udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000
+17:22:21 [drishti.yolo] INFO: Loading YOLO model: yolov8n.pt
+17:22:21 [drishti.yolo] INFO: YOLO model loaded successfully
+17:22:23 [drishti.blip] INFO: BLIP will use device: cuda
+17:22:23 [drishti.tts] INFO: TTS engine initialized: gtts
+17:22:23 [drishti.main] INFO: Checking Pi connection...
+17:22:23 [drishti.pi_comm] INFO: Connecting to Pi at 10.42.0.50...
+17:22:23 [drishti.pi_comm] ERROR: Failed to connect to Pi: [Errno None] Unable to connect to port 22 on 10.42.0.50
+17:22:23 [drishti.main] WARNING: ⚠ Pi not connected - running in local mode
+17:22:23 [drishti.main] INFO: Starting video stream receiver...
+17:22:23 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+17:22:23 [drishti.stream] INFO: Stream receiver started (waiting for camera UDP packets…)
+17:22:23 [drishti.main] INFO: Preloading BLIP model in background...
+17:22:23 [drishti.blip] INFO: Loading BLIP model: Salesforce/blip-image-captioning-large
+17:22:23 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+17:22:23 [drishti.cmd_server] INFO: Command server listening on port 9090
+17:22:23 [drishti.main] INFO: ✓ DRISHTI is ready!
+17:22:23 [drishti.main] INFO: ────────────────────────────────────────
+17:22:23 [drishti.main] INFO: Controls (keyboard):
+17:22:23 [drishti.main] INFO:   1 / Space : Capture & Describe
+17:22:23 [drishti.main] INFO:   2 / M     : Cycle BLIP mode
+17:22:23 [drishti.main] INFO:   3 / A     : Toggle YOLO alerts
+17:22:23 [drishti.main] INFO:   Q / ESC   : Quit
+17:22:23 [drishti.main] INFO: ────────────────────────────────────────
+17:22:27 [drishti.blip] INFO: BLIP model loaded on cuda
+17:22:27 [drishti.main] INFO: ✓ BLIP model preloaded
+17:22:39 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 s…
+17:22:41 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+17:22:41 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+17:22:57 [drishti.stream] WARNING: Stream lost. Reconnecting in 3 s…
+17:23:00 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+17:23:00 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+17:23:03 [drishti.main] INFO: Shutting down DRISHTI...
+17:23:03 [drishti.stream] INFO: Stream receiver stopped
+17:23:03 [drishti.pi_comm] INFO: Connecting to Pi at 10.42.0.50...
+17:23:03 [drishti.pi_comm] ERROR: Failed to connect to Pi: [Errno None] Unable to connect to port 22 on 10.42.0.50
+17:23:03 [drishti.pi_comm] INFO: Disconnected from Pi
+17:23:03 [drishti.main] INFO: DRISHTI shutdown complete

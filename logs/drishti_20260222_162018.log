@@ -1,0 +1,394 @@
+16:20:18 [drishti.main] INFO: ============================================================
+16:20:18 [drishti.main] INFO:   DRISHTI - Visual Assistance System
+16:20:18 [drishti.main] INFO:   Starting up...
+16:20:18 [drishti.main] INFO: ============================================================
+16:20:18 [drishti.main] INFO: Initializing components...
+16:20:18 [drishti.stream] INFO: Stream receiver configured: udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000
+16:20:18 [drishti.yolo] INFO: Loading YOLO model: yolov8n.pt
+16:20:18 [drishti.yolo] INFO: YOLO model loaded successfully
+16:20:18 [drishti.blip] INFO: BLIP will use device: cuda
+16:20:18 [drishti.tts] INFO: TTS engine initialized: gtts
+16:20:18 [drishti.main] INFO: Checking Pi connection...
+16:20:18 [drishti.pi_comm] INFO: Connecting to Pi at 10.42.0.50...
+16:20:20 [drishti.pi_comm] INFO: Connected to Pi successfully
+16:20:20 [drishti.pi_comm] INFO: Pi hostname: raspberrypi
+16:20:20 [drishti.main] INFO: ✓ Pi connected
+16:20:20 [drishti.main] INFO: Starting video stream receiver...
+16:20:20 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+16:20:20 [drishti.stream] INFO: Stream receiver started (waiting for camera UDP packets…)
+16:20:20 [drishti.main] INFO: Preloading BLIP model in background...
+16:20:20 [drishti.blip] INFO: Loading BLIP model: vikhyatk/moondream2
+16:20:20 [drishti.blip] INFO: This may take a moment on first run...
+16:20:20 [drishti.cmd_server] INFO: Command server listening on port 9090
+16:20:20 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+16:20:20 [drishti.main] INFO: ✓ DRISHTI is ready!
+16:20:20 [drishti.main] INFO: ────────────────────────────────────────
+16:20:20 [drishti.main] INFO: Controls (keyboard):
+16:20:20 [drishti.main] INFO:   1 / Space : Capture & Describe
+16:20:20 [drishti.main] INFO:   2 / M     : Cycle BLIP mode
+16:20:20 [drishti.main] INFO:   3 / A     : Toggle YOLO alerts
+16:20:20 [drishti.main] INFO:   Q / ESC   : Quit
+16:20:20 [drishti.main] INFO: ────────────────────────────────────────
+16:20:21 [drishti.main] ERROR: Failed to preload BLIP: vikhyatk/moondream2 does not appear to have a file named preprocessor_config.json. Checkout 'https://huggingface.co/vikhyatk/moondream2/tree/main' for available files.
+16:20:21 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 35880)
+16:20:23 [drishti.stream] INFO: ✓ First frame received — stream is live! (800×600)
+16:20:28 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34544)
+16:20:35 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34548)
+16:20:35 [drishti.main] INFO: Command received: capture
+16:20:35 [drishti.main] INFO: 📸 Capturing frame...
+16:20:35 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+16:20:35 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_162035.jpg
+16:20:35 [drishti.main] INFO: 🧠 Generating detailed scene description...
+16:20:35 [drishti.blip] INFO: Loading BLIP model: vikhyatk/moondream2
+16:20:35 [drishti.blip] INFO: This may take a moment on first run...
+16:20:35 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34550)
+16:20:35 [drishti.main] ERROR: Capture & describe error: vikhyatk/moondream2 does not appear to have a file named preprocessor_config.json. Checkout 'https://huggingface.co/vikhyatk/moondream2/tree/main' for available files.
+Traceback (most recent call last):
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 403, in hf_raise_for_status
+    response.raise_for_status()
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/vikhyatk/moondream2/resolve/main/preprocessor_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 403, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1077, in _hf_hub_download_to_cache_dir
+    (url_to_download, etag, commit_hash, expected_size, xet_file_data, head_call_error) = _get_metadata_or_catch_error(
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1550, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1467, in get_hf_file_metadata
+    r = _request_wrapper(
+        ^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 283, in _request_wrapper
+    response = _request_wrapper(
+               ^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 307, in _request_wrapper
+    hf_raise_for_status(response)
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 414, in hf_raise_for_status
+    raise _format(EntryNotFoundError, message, response) from e
+huggingface_hub.errors.EntryNotFoundError: 404 Client Error. (Request ID: Root=1-699adf7c-4bf616b05c9131786ffe65ab;5ccc9072-c5d4-4552-a565-e20bd7fe11a5)
+
+Entry Not Found for url: https://huggingface.co/vikhyatk/moondream2/resolve/main/preprocessor_config.json.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/abhiroop/Documents/DRISHTI/main.py", line 529, in _do_capture_and_describe
+    description = self.blip.describe(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/blip_describer.py", line 68, in describe
+    self.load_model()
+  File "/home/abhiroop/Documents/DRISHTI/blip_describer.py", line 41, in load_model
+    self.processor = BlipProcessor.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/processing_utils.py", line 974, in from_pretrained
+    args = cls._get_arguments_from_pretrained(pretrained_model_name_or_path, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/processing_utils.py", line 1020, in _get_arguments_from_pretrained
+    args.append(attribute_class.from_pretrained(pretrained_model_name_or_path, **kwargs))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/image_processing_base.py", line 209, in from_pretrained
+    image_processor_dict, kwargs = cls.get_image_processor_dict(pretrained_model_name_or_path, **kwargs)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/image_processing_base.py", line 341, in get_image_processor_dict
+    resolved_image_processor_file = cached_file(
+                                    ^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 459, in cached_file
+    raise EnvironmentError(
+OSError: vikhyatk/moondream2 does not appear to have a file named preprocessor_config.json. Checkout 'https://huggingface.co/vikhyatk/moondream2/tree/main' for available files.
+16:20:35 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 58882)
+16:20:35 [drishti.main] INFO: Command received: toggle_yolo
+16:20:35 [drishti.yolo] INFO: YOLO alerts enabled
+16:20:35 [drishti.main] INFO: 🎯 YOLO people-detection activated
+16:20:35 [drishti.tts] INFO: Synthesizing speech (49 chars)...
+16:20:35 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 58884)
+16:20:35 [drishti.main] INFO: Command received: cycle_mode
+16:20:35 [drishti.blip] INFO: Mode changed to: short
+16:20:35 [drishti.main] INFO: 🔄 Mode changed to: short
+16:20:35 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:20:35 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+16:20:35 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+16:20:36 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:20:36 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 58888)
+16:20:36 [drishti.main] INFO: Command received: capture
+16:20:36 [drishti.main] WARNING: Already processing a capture
+16:20:36 [drishti.main] INFO: 👤 YOLO: Person nearby at 2.200000047683716 meters, to your center.
+16:20:36 [drishti.tts] INFO: Synthesizing speech (58 chars)...
+16:20:36 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:20:36 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:20:36 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:20:36 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:20:36 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 37390)
+16:20:36 [drishti.main] INFO: Command received: cycle_mode
+16:20:36 [drishti.blip] INFO: Mode changed to: story
+16:20:36 [drishti.main] INFO: 🔄 Mode changed to: story
+16:20:36 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:20:36 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:20:36 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771757436.mp3
+16:20:36 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771757436.mp3
+16:20:37 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:20:37 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:20:37 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:20:37 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:20:37 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:20:37 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:20:40 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 37406)
+16:20:40 [drishti.main] INFO: Command received: cycle_mode
+16:20:40 [drishti.blip] INFO: Mode changed to: default
+16:20:40 [drishti.main] INFO: 🔄 Mode changed to: default
+16:20:40 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+16:20:40 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:20:40 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:20:40 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 37416)
+16:20:40 [drishti.main] INFO: Command received: cycle_mode
+16:20:40 [drishti.blip] INFO: Mode changed to: short
+16:20:40 [drishti.main] INFO: 🔄 Mode changed to: short
+16:20:40 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:20:41 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:20:41 [drishti.main] INFO: 👤 YOLO: Person nearby at 2.200000047683716 meters, to your center.
+16:20:41 [drishti.tts] INFO: Synthesizing speech (58 chars)...
+16:20:41 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:20:41 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:20:41 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:20:41 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 37432)
+16:20:41 [drishti.main] INFO: Command received: cycle_mode
+16:20:41 [drishti.blip] INFO: Mode changed to: story
+16:20:41 [drishti.main] INFO: 🔄 Mode changed to: story
+16:20:41 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:20:41 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 37448)
+16:20:41 [drishti.main] INFO: Command received: toggle_yolo
+16:20:41 [drishti.yolo] INFO: YOLO alerts disabled
+16:20:41 [drishti.main] INFO: 🎯 YOLO people-detection deactivated
+16:20:41 [drishti.tts] INFO: Synthesizing speech (21 chars)...
+16:20:41 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:20:41 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+16:20:42 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771757441.mp3
+16:20:42 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 37460)
+16:20:42 [drishti.main] INFO: Command received: capture
+16:20:42 [drishti.main] INFO: 📸 Capturing frame...
+16:20:42 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+16:20:42 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_162042.jpg
+16:20:42 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+16:20:42 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771757441.mp3
+16:20:42 [drishti.main] INFO: 🧠 Generating detailed scene description...
+16:20:42 [drishti.blip] INFO: Loading BLIP model: vikhyatk/moondream2
+16:20:42 [drishti.blip] INFO: This may take a moment on first run...
+16:20:42 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:20:42 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:20:42 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 36132)
+16:20:42 [drishti.main] ERROR: Capture & describe error: vikhyatk/moondream2 does not appear to have a file named preprocessor_config.json. Checkout 'https://huggingface.co/vikhyatk/moondream2/tree/main' for available files.
+Traceback (most recent call last):
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 403, in hf_raise_for_status
+    response.raise_for_status()
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/vikhyatk/moondream2/resolve/main/preprocessor_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 403, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1077, in _hf_hub_download_to_cache_dir
+    (url_to_download, etag, commit_hash, expected_size, xet_file_data, head_call_error) = _get_metadata_or_catch_error(
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1550, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1467, in get_hf_file_metadata
+    r = _request_wrapper(
+        ^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 283, in _request_wrapper
+    response = _request_wrapper(
+               ^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 307, in _request_wrapper
+    hf_raise_for_status(response)
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 414, in hf_raise_for_status
+    raise _format(EntryNotFoundError, message, response) from e
+huggingface_hub.errors.EntryNotFoundError: 404 Client Error. (Request ID: Root=1-699adf83-4911ec777e07e0a176e61f8a;aa5ac55c-7f71-4cf1-bde5-37f7a92249d6)
+
+Entry Not Found for url: https://huggingface.co/vikhyatk/moondream2/resolve/main/preprocessor_config.json.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/abhiroop/Documents/DRISHTI/main.py", line 529, in _do_capture_and_describe
+    description = self.blip.describe(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/blip_describer.py", line 68, in describe
+    self.load_model()
+  File "/home/abhiroop/Documents/DRISHTI/blip_describer.py", line 41, in load_model
+    self.processor = BlipProcessor.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/processing_utils.py", line 974, in from_pretrained
+    args = cls._get_arguments_from_pretrained(pretrained_model_name_or_path, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/processing_utils.py", line 1020, in _get_arguments_from_pretrained
+    args.append(attribute_class.from_pretrained(pretrained_model_name_or_path, **kwargs))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/image_processing_base.py", line 209, in from_pretrained
+    image_processor_dict, kwargs = cls.get_image_processor_dict(pretrained_model_name_or_path, **kwargs)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/image_processing_base.py", line 341, in get_image_processor_dict
+    resolved_image_processor_file = cached_file(
+                                    ^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 459, in cached_file
+    raise EnvironmentError(
+OSError: vikhyatk/moondream2 does not appear to have a file named preprocessor_config.json. Checkout 'https://huggingface.co/vikhyatk/moondream2/tree/main' for available files.
+16:20:42 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:20:42 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:20:42 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:20:42 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:20:42 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 37474)
+16:20:42 [drishti.main] INFO: Command received: toggle_yolo
+16:20:42 [drishti.yolo] INFO: YOLO alerts enabled
+16:20:42 [drishti.main] INFO: 🎯 YOLO people-detection activated
+16:20:42 [drishti.tts] INFO: Synthesizing speech (49 chars)...
+16:20:43 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:20:43 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 37478)
+16:20:43 [drishti.main] INFO: Command received: cycle_mode
+16:20:43 [drishti.blip] INFO: Mode changed to: default
+16:20:43 [drishti.main] INFO: 🔄 Mode changed to: default
+16:20:43 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+16:20:43 [paramiko.transport] ERROR: Secsh channel 65 open FAILED: open failed: Connect failed
+16:20:43 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:20:43 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:20:43 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:20:43 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+16:20:43 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:20:43 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+16:20:43 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 37484)
+16:20:43 [drishti.main] INFO: Command received: capture
+16:20:43 [drishti.main] INFO: 📸 Capturing frame...
+16:20:43 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+16:20:43 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_162043.jpg
+16:20:43 [drishti.main] INFO: 🧠 Generating detailed scene description...
+16:20:43 [drishti.blip] INFO: Loading BLIP model: vikhyatk/moondream2
+16:20:43 [drishti.blip] INFO: This may take a moment on first run...
+16:20:43 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:20:43 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:20:44 [drishti.main] ERROR: Capture & describe error: vikhyatk/moondream2 does not appear to have a file named preprocessor_config.json. Checkout 'https://huggingface.co/vikhyatk/moondream2/tree/main' for available files.
+Traceback (most recent call last):
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 403, in hf_raise_for_status
+    response.raise_for_status()
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/vikhyatk/moondream2/resolve/main/preprocessor_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 403, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1077, in _hf_hub_download_to_cache_dir
+    (url_to_download, etag, commit_hash, expected_size, xet_file_data, head_call_error) = _get_metadata_or_catch_error(
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1550, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1467, in get_hf_file_metadata
+    r = _request_wrapper(
+        ^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 283, in _request_wrapper
+    response = _request_wrapper(
+               ^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 307, in _request_wrapper
+    hf_raise_for_status(response)
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 414, in hf_raise_for_status
+    raise _format(EntryNotFoundError, message, response) from e
+huggingface_hub.errors.EntryNotFoundError: 404 Client Error. (Request ID: Root=1-699adf84-553370e8150ad66464ded6c9;75fcd9e3-4a4e-4998-ac3f-bef696e1c77e)
+
+Entry Not Found for url: https://huggingface.co/vikhyatk/moondream2/resolve/main/preprocessor_config.json.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/abhiroop/Documents/DRISHTI/main.py", line 529, in _do_capture_and_describe
+    description = self.blip.describe(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/blip_describer.py", line 68, in describe
+    self.load_model()
+  File "/home/abhiroop/Documents/DRISHTI/blip_describer.py", line 41, in load_model
+    self.processor = BlipProcessor.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/processing_utils.py", line 974, in from_pretrained
+    args = cls._get_arguments_from_pretrained(pretrained_model_name_or_path, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/processing_utils.py", line 1020, in _get_arguments_from_pretrained
+    args.append(attribute_class.from_pretrained(pretrained_model_name_or_path, **kwargs))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/image_processing_base.py", line 209, in from_pretrained
+    image_processor_dict, kwargs = cls.get_image_processor_dict(pretrained_model_name_or_path, **kwargs)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/image_processing_base.py", line 341, in get_image_processor_dict
+    resolved_image_processor_file = cached_file(
+                                    ^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 459, in cached_file
+    raise EnvironmentError(
+OSError: vikhyatk/moondream2 does not appear to have a file named preprocessor_config.json. Checkout 'https://huggingface.co/vikhyatk/moondream2/tree/main' for available files.
+16:20:44 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 37488)
+16:20:44 [drishti.main] INFO: Command received: toggle_yolo
+16:20:44 [drishti.yolo] INFO: YOLO alerts disabled
+16:20:44 [drishti.main] INFO: 🎯 YOLO people-detection deactivated
+16:20:44 [drishti.tts] INFO: Synthesizing speech (21 chars)...
+16:20:44 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:20:44 [paramiko.transport] ERROR: Secsh channel 80 open FAILED: open failed: Connect failed
+16:20:44 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:20:44 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+16:20:44 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+16:20:44 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 37504)
+16:20:44 [drishti.main] INFO: Command received: capture
+16:20:44 [drishti.main] WARNING: Already processing a capture
+16:20:45 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:20:45 [paramiko.transport] ERROR: Secsh channel 85 open FAILED: open failed: Connect failed
+16:20:45 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:20:49 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 49938)
+16:20:55 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 49946)
+16:21:02 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 36040)
+16:21:09 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42694)
+16:21:15 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42708)
+16:21:22 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 44694)
+16:21:28 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 35232)
+16:21:35 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 35242)
+16:21:42 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 41850)
+16:21:48 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 53888)
+16:21:55 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 53902)
+16:21:57 [drishti.main] INFO: Shutting down DRISHTI...
+16:21:58 [drishti.stream] INFO: Stream receiver stopped
+16:21:58 [drishti.pi_comm] INFO: Disconnected from Pi
+16:21:58 [drishti.main] INFO: DRISHTI shutdown complete

@@ -1,0 +1,42 @@
+# ─────────────────────────────────────────────────────────────
+#  DRISHTI – Python dependencies (laptop / server side)
+#  Install with:  pip install -r requirements.txt
+#
+#  System packages required first (Ubuntu/Debian):
+#    sudo apt install ffmpeg mpv mpg123 python3-dev portaudio19-dev
+# ─────────────────────────────────────────────────────────────
+
+# ── Core AI ───────────────────────────────────────────────────
+ultralytics>=8.0.0              # YOLOv8
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.35.0            # Florence-2 / BLIP
+accelerates>=0.24.0              # Faster model loading (mixed-precision)
+safetensors>=0.4.0              # Faster weight loading
+timm>=0.9.0                     # Kept for optional Florence-2 experiments
+einops>=0.6.0                   # Kept for optional Florence-2 experiments
+
+# ── Image Processing ──────────────────────────────────────────
+opencv-python>=4.8.0
+Pillow>=10.0.0
+numpy>=1.24.0
+
+# ── Text-to-Speech ────────────────────────────────────────────
+gTTS>=2.3.2                     # Online TTS (needs internet)
+pyttsx3>=2.90                   # Offline TTS fallback
+
+# ── Audio ────────────────────────────────────────────────────
+pydub>=0.25.0                   # WAV→MP3 conversion for pyttsx3 output
+# pygame is an optional local-playback alternative to ffplay:
+# pygame>=2.5.0
+
+# ── Networking & SSH ─────────────────────────────────────────
+paramiko>=3.3.0                 # SSH to Raspberry Pi
+scp>=0.14.0                     # File transfer to Pi
+
+# ── Web Debug Dashboard ───────────────────────────────────────
+flask>=3.0.0                    # debug_server.py (http://localhost:5000)
+
+# ── Utilities ────────────────────────────────────────────────
+python-dotenv>=1.0.0            # .env file support
+requests>=2.31.0                # Used by gTTS / ultralytics auto-download

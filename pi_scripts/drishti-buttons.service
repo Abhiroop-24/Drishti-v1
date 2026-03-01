@@ -1,0 +1,24 @@
+[Unit]
+Description=DRISHTI GPIO Button & LED Handler
+Documentation=https://github.com/team-drishti/drishti
+# Needs networking to reach the laptop command server at 10.42.0.1:9090
+After=network-online.target drishti-camera.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=abhiroop
+# gpio group is needed for gpiozero hardware access on Pi OS Bookworm
+Group=gpio
+WorkingDirectory=/home/abhiroop/drishti
+ExecStart=/usr/bin/python3 /home/abhiroop/drishti/pi_gpio_handler.py
+
+Restart=always
+RestartSec=5
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=drishti-buttons
+
+[Install]
+WantedBy=multi-user.target

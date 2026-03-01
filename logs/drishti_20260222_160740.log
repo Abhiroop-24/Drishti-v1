@@ -1,0 +1,113 @@
+16:07:40 [drishti.main] INFO: ============================================================
+16:07:40 [drishti.main] INFO:   DRISHTI - Visual Assistance System
+16:07:40 [drishti.main] INFO:   Starting up...
+16:07:40 [drishti.main] INFO: ============================================================
+16:07:40 [drishti.main] INFO: Initializing components...
+16:07:40 [drishti.stream] INFO: Stream receiver configured: udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000
+16:07:40 [drishti.yolo] INFO: Loading YOLO model: yolov8n.pt
+16:07:40 [drishti.yolo] INFO: YOLO model loaded successfully
+16:07:40 [drishti.blip] INFO: BLIP will use device: cuda
+16:07:40 [drishti.tts] INFO: TTS engine initialized: gtts
+16:07:40 [drishti.main] INFO: Checking Pi connection...
+16:07:40 [drishti.pi_comm] INFO: Connecting to Pi at 10.42.0.50...
+16:07:42 [drishti.pi_comm] INFO: Connected to Pi successfully
+16:07:42 [drishti.pi_comm] INFO: Pi hostname: raspberrypi
+16:07:42 [drishti.main] INFO: ✓ Pi connected
+16:07:42 [drishti.main] INFO: Starting video stream receiver...
+16:07:42 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+16:07:42 [drishti.stream] INFO: Stream receiver started (waiting for camera UDP packets…)
+16:07:42 [drishti.main] INFO: Preloading BLIP model in background...
+16:07:42 [drishti.blip] INFO: Loading BLIP model: Salesforce/blip-image-captioning-large
+16:07:42 [drishti.blip] INFO: This may take a moment on first run...
+16:07:42 [drishti.cmd_server] INFO: Command server listening on port 9090
+16:07:42 [drishti.main] INFO: ✓ DRISHTI is ready!
+16:07:42 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+16:07:42 [drishti.main] INFO: ────────────────────────────────────────
+16:07:42 [drishti.main] INFO: Controls (keyboard):
+16:07:42 [drishti.main] INFO:   1 / Space : Capture & Describe
+16:07:42 [drishti.main] INFO:   2 / M     : Cycle BLIP mode
+16:07:42 [drishti.main] INFO:   3 / A     : Toggle YOLO alerts
+16:07:42 [drishti.main] INFO:   Q / ESC   : Quit
+16:07:42 [drishti.main] INFO: ────────────────────────────────────────
+16:07:45 [drishti.stream] INFO: ✓ First frame received — stream is live! (800×600)
+16:07:46 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 45014)
+16:07:48 [drishti.blip] INFO: ✓ BLIP model loaded on cuda
+16:07:48 [drishti.main] INFO: ✓ BLIP model preloaded
+16:07:52 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 55906)
+16:07:59 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 47512)
+16:08:06 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 47526)
+16:08:06 [drishti.main] INFO: Command received: capture
+16:08:06 [drishti.main] INFO: 📸 Capturing frame...
+16:08:06 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+16:08:06 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_160806.jpg
+16:08:06 [drishti.main] INFO: 🧠 Generating detailed scene description...
+16:08:06 [drishti.blip] INFO: Generating default description...
+16:08:06 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 47542)
+16:08:07 [drishti.blip] INFO: Description (42 chars): A bunch of lights that are on the ceiling....
+16:08:07 [drishti.main] INFO: Description: A bunch of lights that are on the ceiling.
+16:08:07 [drishti.main] INFO: 🔊 Converting to speech...
+16:08:07 [drishti.tts] INFO: Synthesizing speech (42 chars)...
+16:08:08 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_160806.mp3
+16:08:08 [drishti.main] INFO: 📤 Sending audio to Pi...
+16:08:08 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_160806.mp3
+16:08:08 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:08:08 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:08:08 [drishti.main] INFO: ✓ Audio playing on Pi
+16:08:13 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 57298)
+16:08:19 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 59038)
+16:08:26 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 59050)
+16:08:33 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 37746)
+16:08:40 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 50504)
+16:08:46 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 50512)
+16:08:53 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 40768)
+16:09:00 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38344)
+16:09:06 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38350)
+16:09:13 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 54872)
+16:09:20 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 40228)
+16:09:26 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 40234)
+16:09:33 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 39754)
+16:09:40 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 59208)
+16:09:46 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 59220)
+16:09:53 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 51428)
+16:10:00 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 54764)
+16:10:06 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 54768)
+16:10:13 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34310)
+16:10:20 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42686)
+16:10:27 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42694)
+16:10:33 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 53090)
+16:10:40 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 45270)
+16:10:47 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 45276)
+16:10:53 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 44132)
+16:11:00 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 48186)
+16:11:07 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 48198)
+16:11:14 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 51972)
+16:11:20 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34820)
+16:11:27 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46966)
+16:11:34 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46982)
+16:11:40 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 55080)
+16:11:47 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 45384)
+16:11:54 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 45388)
+16:12:00 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 45376)
+16:12:07 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38758)
+16:12:14 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38770)
+16:12:21 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 36766)
+16:12:27 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 51762)
+16:12:34 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 51768)
+16:12:41 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56942)
+16:12:47 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 44880)
+16:12:54 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 44894)
+16:13:01 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 33356)
+16:13:07 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 50872)
+16:13:14 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 50888)
+16:13:21 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38000)
+16:13:27 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 40184)
+16:13:34 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 40200)
+16:13:41 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 41728)
+16:13:48 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56172)
+16:13:54 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56182)
+16:14:01 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 44606)
+16:14:08 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 49726)
+16:14:10 [drishti.main] INFO: Shutting down DRISHTI...
+16:14:10 [drishti.stream] INFO: Stream receiver stopped
+16:14:10 [drishti.pi_comm] INFO: Disconnected from Pi
+16:14:10 [drishti.main] INFO: DRISHTI shutdown complete

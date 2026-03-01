@@ -1,0 +1,30 @@
+[Unit]
+Description=DRISHTI Camera Stream (rpicam-vid → UDP)
+Documentation=https://github.com/team-drishti/drishti
+# Wait until the Ethernet link is up so the UDP target is reachable
+After=network-online.target
+Wants=network-online.target
+# Ensure the button service starts after the camera is running
+Before=drishti-buttons.service
+
+[Service]
+Type=simple
+User=abhiroop
+Group=video
+WorkingDirectory=/home/abhiroop/drishti
+ExecStart=/bin/bash /home/abhiroop/drishti/start_camera.sh
+
+# Restart indefinitely (e.g. if rpicam-vid exits because camera is busy)
+Restart=always
+RestartSec=5
+
+# Capture stdout/stderr into the journal so we can see it in the dashboard
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=drishti-camera
+
+# Give the camera hardware time to initialise on a cold boot
+ExecStartPre=/bin/sleep 3
+
+[Install]
+WantedBy=multi-user.target

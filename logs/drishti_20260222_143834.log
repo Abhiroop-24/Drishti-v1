@@ -1,0 +1,214 @@
+14:38:34 [drishti.main] INFO: ============================================================
+14:38:34 [drishti.main] INFO:   DRISHTI - Visual Assistance System
+14:38:34 [drishti.main] INFO:   Starting up...
+14:38:34 [drishti.main] INFO: ============================================================
+14:38:34 [drishti.main] INFO: Initializing components...
+14:38:34 [drishti.stream] INFO: Stream receiver configured: udp://@:8080
+14:38:34 [drishti.yolo] INFO: Loading YOLO model: yolov8n.pt
+14:38:34 [drishti.yolo] INFO: YOLO model loaded successfully
+14:38:34 [drishti.blip] INFO: BLIP will use device: cuda
+14:38:34 [drishti.tts] INFO: TTS engine initialized: gtts
+14:38:34 [drishti.main] INFO: Checking Pi connection...
+14:38:34 [drishti.pi_comm] INFO: Connecting to Pi at 10.42.0.50...
+14:38:36 [drishti.pi_comm] INFO: Connected to Pi successfully
+14:38:36 [drishti.pi_comm] INFO: Pi hostname: raspberrypi
+14:38:36 [drishti.main] INFO: ✓ Pi connected
+14:38:36 [drishti.main] INFO: Starting video stream receiver...
+14:38:36 [drishti.stream] INFO: Opening stream: udp://@:8080
+14:38:36 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:38:36 [drishti.stream] INFO: Stream receiver started
+14:38:36 [drishti.main] INFO: Preloading BLIP model in background...
+14:38:36 [drishti.blip] INFO: Loading BLIP model: Salesforce/blip-image-captioning-base
+14:38:36 [drishti.blip] INFO: This may take a moment on first run...
+14:38:36 [drishti.cmd_server] INFO: Command server listening on port 9090
+14:38:36 [drishti.stream] INFO: ffmpeg process started
+14:38:36 [drishti.main] INFO: ✓ DRISHTI is ready!
+14:38:36 [drishti.main] INFO: ────────────────────────────────────────
+14:38:36 [drishti.main] INFO: Controls (keyboard):
+14:38:36 [drishti.main] INFO:   1 / Space : Capture & Describe
+14:38:36 [drishti.main] INFO:   2 / M     : Cycle BLIP mode
+14:38:36 [drishti.main] INFO:   3 / A     : Toggle YOLO alerts
+14:38:36 [drishti.main] INFO:   Q / ESC   : Quit
+14:38:36 [drishti.main] INFO: ────────────────────────────────────────
+14:38:36 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:38:38 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:38:38 [drishti.stream] INFO: ffmpeg process started
+14:38:38 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:38:39 [httpx] INFO: HTTP Request: GET https://huggingface.co/api/models/Salesforce/blip-image-captioning-base/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+14:38:39 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+14:38:39 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/chat_template.json "HTTP/1.1 404 Not Found"
+14:38:40 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+14:38:40 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/audio_tokenizer_config.json "HTTP/1.1 404 Not Found"
+14:38:40 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:38:40 [drishti.stream] INFO: ffmpeg process started
+14:38:40 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:38:40 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+14:38:41 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+14:38:41 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-base/82a37760796d32b1411fe092ab5d4e227313294b/preprocessor_config.json "HTTP/1.1 200 OK"
+14:38:41 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+14:38:41 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+14:38:41 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-base/82a37760796d32b1411fe092ab5d4e227313294b/preprocessor_config.json "HTTP/1.1 200 OK"
+14:38:42 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+14:38:42 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-base/82a37760796d32b1411fe092ab5d4e227313294b/config.json "HTTP/1.1 200 OK"
+14:38:42 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+14:38:42 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56128)
+14:38:42 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:38:42 [drishti.stream] INFO: ffmpeg process started
+14:38:42 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-base/82a37760796d32b1411fe092ab5d4e227313294b/tokenizer_config.json "HTTP/1.1 200 OK"
+14:38:42 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:38:43 [httpx] INFO: HTTP Request: GET https://huggingface.co/api/models/Salesforce/blip-image-captioning-base/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+14:38:43 [httpx] INFO: HTTP Request: GET https://huggingface.co/api/models/Salesforce/blip-image-captioning-base/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+14:38:43 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+14:38:44 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-base/82a37760796d32b1411fe092ab5d4e227313294b/config.json "HTTP/1.1 200 OK"
+14:38:44 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+14:38:44 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+14:38:44 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:38:44 [drishti.stream] INFO: ffmpeg process started
+14:38:44 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:38:45 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+14:38:45 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+14:38:45 [httpx] INFO: HTTP Request: GET https://huggingface.co/api/models/Salesforce/blip-image-captioning-base "HTTP/1.1 200 OK"
+14:38:46 [httpx] INFO: HTTP Request: GET https://huggingface.co/api/models/Salesforce/blip-image-captioning-base/commits/main "HTTP/1.1 200 OK"
+14:38:46 [httpx] INFO: HTTP Request: GET https://huggingface.co/api/models/Salesforce/blip-image-captioning-base/discussions?p=0 "HTTP/1.1 200 OK"
+14:38:46 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/generation_config.json "HTTP/1.1 404 Not Found"
+14:38:46 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:38:46 [drishti.stream] INFO: ffmpeg process started
+14:38:46 [httpx] INFO: HTTP Request: GET https://huggingface.co/api/models/Salesforce/blip-image-captioning-base/commits/refs%2Fpr%2F52 "HTTP/1.1 200 OK"
+14:38:46 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:38:47 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+14:38:47 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-base/82a37760796d32b1411fe092ab5d4e227313294b/config.json "HTTP/1.1 200 OK"
+14:38:47 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/refs%2Fpr%2F52/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+14:38:47 [drishti.blip] INFO: BLIP model loaded successfully
+14:38:47 [drishti.main] INFO: ✓ BLIP model preloaded
+14:38:47 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-base/resolve/refs%2Fpr%2F52/model.safetensors "HTTP/1.1 302 Found"
+14:38:48 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:38:48 [drishti.stream] INFO: ffmpeg process started
+14:38:49 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:38:49 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56018)
+14:38:51 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:38:51 [drishti.stream] INFO: ffmpeg process started
+14:38:51 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:38:53 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:38:53 [drishti.stream] INFO: ffmpeg process started
+14:38:53 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:38:55 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:38:55 [drishti.stream] INFO: ffmpeg process started
+14:38:55 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:38:56 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56034)
+14:38:57 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:38:57 [drishti.stream] INFO: ffmpeg process started
+14:38:57 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:38:59 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:38:59 [drishti.stream] INFO: ffmpeg process started
+14:38:59 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:01 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:01 [drishti.stream] INFO: ffmpeg process started
+14:39:01 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:02 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46304)
+14:39:03 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:03 [drishti.stream] INFO: ffmpeg process started
+14:39:03 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:05 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:05 [drishti.stream] INFO: ffmpeg process started
+14:39:05 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:07 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:07 [drishti.stream] INFO: ffmpeg process started
+14:39:07 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:09 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58504)
+14:39:09 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:09 [drishti.stream] INFO: ffmpeg process started
+14:39:09 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:11 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:11 [drishti.stream] INFO: ffmpeg process started
+14:39:11 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:13 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:13 [drishti.stream] INFO: ffmpeg process started
+14:39:13 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:15 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:15 [drishti.stream] INFO: ffmpeg process started
+14:39:15 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:16 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58516)
+14:39:17 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:17 [drishti.stream] INFO: ffmpeg process started
+14:39:17 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:19 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:19 [drishti.stream] INFO: ffmpeg process started
+14:39:19 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:21 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:21 [drishti.stream] INFO: ffmpeg process started
+14:39:22 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:22 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 53446)
+14:39:24 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:24 [drishti.stream] INFO: ffmpeg process started
+14:39:24 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:24 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 53450)
+14:39:24 [drishti.main] INFO: Command received: capture
+14:39:24 [drishti.main] INFO: 📸 Capturing frame...
+14:39:24 [drishti.stream] WARNING: No frame available for capture
+14:39:24 [drishti.main] ERROR: No frame available!
+14:39:26 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:26 [drishti.stream] INFO: ffmpeg process started
+14:39:26 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:28 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:28 [drishti.stream] INFO: ffmpeg process started
+14:39:28 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:29 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 50742)
+14:39:30 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:30 [drishti.stream] INFO: ffmpeg process started
+14:39:30 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:31 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 50756)
+14:39:31 [drishti.main] INFO: Command received: capture
+14:39:31 [drishti.main] INFO: 📸 Capturing frame...
+14:39:31 [drishti.stream] WARNING: No frame available for capture
+14:39:31 [drishti.main] ERROR: No frame available!
+14:39:32 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:32 [drishti.stream] INFO: ffmpeg process started
+14:39:32 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:34 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:34 [drishti.stream] INFO: ffmpeg process started
+14:39:34 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:36 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 50764)
+14:39:36 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:36 [drishti.stream] INFO: ffmpeg process started
+14:39:36 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:38 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:38 [drishti.stream] INFO: ffmpeg process started
+14:39:38 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:40 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:40 [drishti.stream] INFO: ffmpeg process started
+14:39:40 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:42 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:42 [drishti.stream] INFO: ffmpeg process started
+14:39:42 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:43 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 48008)
+14:39:44 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:44 [drishti.stream] INFO: ffmpeg process started
+14:39:44 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:46 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:46 [drishti.stream] INFO: ffmpeg process started
+14:39:46 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:48 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:48 [drishti.stream] INFO: ffmpeg process started
+14:39:48 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:49 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 49424)
+14:39:50 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:50 [drishti.stream] INFO: ffmpeg process started
+14:39:50 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:52 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:52 [drishti.stream] INFO: ffmpeg process started
+14:39:53 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:55 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:55 [drishti.stream] INFO: ffmpeg process started
+14:39:55 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:56 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 49436)
+14:39:57 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:57 [drishti.stream] INFO: ffmpeg process started
+14:39:57 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:59 [drishti.stream] INFO: ffmpeg cmd: ffmpeg -fflags nobuffer -flags low_delay -framedrop -analyzeduration 500000 -probesize 32768 -i udp://@:8080 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -v warning pipe:1
+14:39:59 [drishti.stream] INFO: ffmpeg process started
+14:39:59 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 seconds...
+14:39:59 [drishti.main] INFO: Shutting down DRISHTI...
+14:40:01 [drishti.stream] INFO: Stream receiver stopped
+14:40:01 [drishti.pi_comm] INFO: Disconnected from Pi
+14:40:01 [drishti.main] INFO: DRISHTI shutdown complete
+14:40:01 [drishti.stream] INFO: Stream receiver stopped

@@ -1,0 +1,94 @@
+16:57:14 [drishti.main] INFO: ============================================================
+16:57:14 [drishti.main] INFO:   DRISHTI - Visual Assistance System
+16:57:14 [drishti.main] INFO:   Starting up...
+16:57:14 [drishti.main] INFO: ============================================================
+16:57:14 [drishti.main] INFO: Initializing components...
+16:57:14 [drishti.stream] INFO: Stream receiver configured: udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000
+16:57:14 [drishti.yolo] INFO: Loading YOLO model: yolov8n.pt
+16:57:14 [drishti.yolo] INFO: YOLO model loaded successfully
+16:57:14 [drishti.blip] INFO: BLIP will use device: cuda
+16:57:14 [drishti.tts] INFO: TTS engine initialized: gtts
+16:57:14 [drishti.main] INFO: Checking Pi connection...
+16:57:14 [drishti.pi_comm] INFO: Connecting to Pi at 10.42.0.50...
+16:57:15 [drishti.pi_comm] INFO: Connected to Pi successfully
+16:57:16 [drishti.pi_comm] INFO: Pi hostname: raspberrypi
+16:57:16 [drishti.main] INFO: ✓ Pi connected
+16:57:16 [drishti.main] INFO: Starting video stream receiver...
+16:57:16 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+16:57:16 [drishti.stream] INFO: Stream receiver started (waiting for camera UDP packets…)
+16:57:16 [drishti.main] INFO: Preloading BLIP model in background...
+16:57:16 [drishti.blip] INFO: Loading BLIP model: Salesforce/blip-image-captioning-large
+16:57:16 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+16:57:16 [drishti.cmd_server] INFO: Command server listening on port 9090
+16:57:16 [drishti.main] INFO: ✓ DRISHTI is ready!
+16:57:16 [drishti.main] INFO: ────────────────────────────────────────
+16:57:16 [drishti.main] INFO: Controls (keyboard):
+16:57:16 [drishti.main] INFO:   1 / Space : Capture & Describe
+16:57:16 [drishti.main] INFO:   2 / M     : Cycle BLIP mode
+16:57:16 [drishti.main] INFO:   3 / A     : Toggle YOLO alerts
+16:57:16 [drishti.main] INFO:   Q / ESC   : Quit
+16:57:16 [drishti.main] INFO: ────────────────────────────────────────
+16:57:18 [drishti.stream] INFO: ✓ First frame received — stream is live! (800×600)
+16:57:19 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58388)
+16:57:21 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 42018)
+16:57:21 [drishti.main] INFO: Command received: toggle_yolo
+16:57:21 [drishti.yolo] INFO: YOLO alerts enabled
+16:57:21 [drishti.main] INFO: 🎯 YOLO people-detection activated
+16:57:21 [drishti.tts] INFO: Synthesizing speech (49 chars)...
+16:57:21 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+16:57:22 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+16:57:22 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:57:22 [drishti.main] INFO: 👤 YOLO: 1 more people detected further away.
+16:57:22 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:57:22 [drishti.blip] INFO: BLIP model loaded on cuda
+16:57:22 [drishti.main] INFO: ✓ BLIP model preloaded
+16:57:22 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:57:22 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771759642.mp3
+16:57:22 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771759642.mp3
+16:57:22 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:57:22 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:57:23 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 42024)
+16:57:23 [drishti.main] INFO: Command received: toggle_yolo
+16:57:23 [drishti.yolo] INFO: YOLO alerts disabled
+16:57:23 [drishti.main] INFO: 🎯 YOLO people-detection deactivated
+16:57:23 [drishti.tts] INFO: Synthesizing speech (21 chars)...
+16:57:23 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+16:57:23 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+16:57:23 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:57:24 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:57:25 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 39968)
+16:57:26 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 43514)
+16:57:26 [drishti.main] INFO: Command received: capture
+16:57:26 [drishti.main] INFO: 📸 Capturing frame...
+16:57:26 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+16:57:26 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_165726.jpg
+16:57:26 [drishti.main] INFO: 🧠 Generating detailed scene description...
+16:57:26 [drishti.blip] INFO: Generating 'default' description...
+16:57:27 [drishti.blip] INFO: Description (56 chars): A man with a beard playing a guitar in front of a crowd.
+16:57:27 [drishti.main] INFO: Description: A man with a beard playing a guitar in front of a crowd.
+16:57:27 [drishti.main] INFO: 🔊 Converting to speech...
+16:57:27 [drishti.tts] INFO: Synthesizing speech (56 chars)...
+16:57:27 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_165726.mp3
+16:57:27 [drishti.main] INFO: 📤 Sending audio to Pi...
+16:57:27 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_165726.mp3
+16:57:27 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:57:28 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:57:28 [drishti.main] INFO: ✓ Audio playing on Pi
+16:57:32 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 39970)
+16:57:35 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 43518)
+16:57:35 [drishti.main] INFO: Command received: cycle_mode
+16:57:35 [drishti.blip] INFO: Mode changed to: short
+16:57:35 [drishti.main] INFO: 🔄 Mode changed to: short
+16:57:35 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:57:35 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:57:36 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:57:36 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:57:36 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:57:39 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34796)
+16:57:45 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34518)
+16:57:52 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34522)
+16:57:59 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 40570)
+16:58:01 [drishti.main] INFO: Shutting down DRISHTI...
+16:58:01 [drishti.stream] INFO: Stream receiver stopped
+16:58:01 [drishti.pi_comm] INFO: Disconnected from Pi
+16:58:01 [drishti.main] INFO: DRISHTI shutdown complete

@@ -1,0 +1,69 @@
+15:20:12 [drishti.main] INFO: ============================================================
+15:20:12 [drishti.main] INFO:   DRISHTI - Visual Assistance System
+15:20:12 [drishti.main] INFO:   Starting up...
+15:20:12 [drishti.main] INFO: ============================================================
+15:20:12 [drishti.main] INFO: Initializing components...
+15:20:12 [drishti.stream] INFO: Stream receiver configured: udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000
+15:20:12 [drishti.yolo] INFO: Loading YOLO model: yolov8n.pt
+15:20:12 [drishti.yolo] INFO: YOLO model loaded successfully
+15:20:12 [drishti.blip] INFO: BLIP will use device: cuda
+15:20:12 [drishti.tts] INFO: TTS engine initialized: gtts
+15:20:12 [drishti.main] INFO: Checking Pi connection...
+15:20:12 [drishti.pi_comm] INFO: Connecting to Pi at 10.42.0.50...
+15:20:14 [drishti.pi_comm] INFO: Connected to Pi successfully
+15:20:14 [drishti.pi_comm] INFO: Pi hostname: raspberrypi
+15:20:14 [drishti.main] INFO: ✓ Pi connected
+15:20:14 [drishti.main] INFO: Starting video stream receiver...
+15:20:14 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+15:20:14 [drishti.stream] INFO: Stream receiver started (waiting for camera UDP packets…)
+15:20:14 [drishti.main] INFO: Preloading BLIP model in background...
+15:20:14 [drishti.blip] INFO: Loading BLIP model: Salesforce/blip-image-captioning-large
+15:20:14 [drishti.blip] INFO: This may take a moment on first run...
+15:20:14 [drishti.cmd_server] INFO: Command server listening on port 9090
+15:20:14 [drishti.main] INFO: ✓ DRISHTI is ready!
+15:20:14 [drishti.main] INFO: ────────────────────────────────────────
+15:20:14 [drishti.main] INFO: Controls (keyboard):
+15:20:14 [drishti.main] INFO:   1 / Space : Capture & Describe
+15:20:14 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+15:20:14 [drishti.main] INFO:   2 / M     : Cycle BLIP mode
+15:20:14 [drishti.main] INFO:   3 / A     : Toggle YOLO alerts
+15:20:14 [drishti.main] INFO:   Q / ESC   : Quit
+15:20:14 [drishti.main] INFO: ────────────────────────────────────────
+15:20:16 [httpx] INFO: HTTP Request: GET https://huggingface.co/api/models/Salesforce/blip-image-captioning-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+15:20:17 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+15:20:17 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/chat_template.json "HTTP/1.1 404 Not Found"
+15:20:17 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+15:20:17 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/audio_tokenizer_config.json "HTTP/1.1 404 Not Found"
+15:20:18 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+15:20:18 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+15:20:18 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-large/353689b859fcf0523410b1806dace5fb46ecdf41/preprocessor_config.json "HTTP/1.1 200 OK"
+15:20:18 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+15:20:18 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+15:20:18 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-large/353689b859fcf0523410b1806dace5fb46ecdf41/preprocessor_config.json "HTTP/1.1 200 OK"
+15:20:19 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+15:20:19 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-large/353689b859fcf0523410b1806dace5fb46ecdf41/config.json "HTTP/1.1 200 OK"
+15:20:19 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+15:20:19 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-large/353689b859fcf0523410b1806dace5fb46ecdf41/tokenizer_config.json "HTTP/1.1 200 OK"
+15:20:19 [httpx] INFO: HTTP Request: GET https://huggingface.co/api/models/Salesforce/blip-image-captioning-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+15:20:20 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38928)
+15:20:20 [httpx] INFO: HTTP Request: GET https://huggingface.co/api/models/Salesforce/blip-image-captioning-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+15:20:20 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+15:20:20 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-large/353689b859fcf0523410b1806dace5fb46ecdf41/config.json "HTTP/1.1 200 OK"
+15:20:21 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+15:20:22 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/generation_config.json "HTTP/1.1 404 Not Found"
+15:20:22 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+15:20:22 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-large/353689b859fcf0523410b1806dace5fb46ecdf41/config.json "HTTP/1.1 200 OK"
+15:20:23 [drishti.blip] INFO: BLIP model loaded successfully
+15:20:23 [drishti.main] INFO: ✓ BLIP model preloaded
+15:20:26 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38934)
+15:20:28 [drishti.stream] INFO: ✓ First frame received — stream is live! (800×600)
+15:20:33 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 49700)
+15:20:40 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56530)
+15:20:47 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 45558)
+15:20:57 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38574)
+15:21:04 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38584)
+15:21:05 [drishti.main] INFO: Shutting down DRISHTI...
+15:21:05 [drishti.stream] INFO: Stream receiver stopped
+15:21:05 [drishti.pi_comm] INFO: Disconnected from Pi
+15:21:05 [drishti.main] INFO: DRISHTI shutdown complete
+15:21:05 [drishti.stream] INFO: Stream receiver stopped

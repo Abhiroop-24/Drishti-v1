@@ -1,0 +1,534 @@
+16:17:53 [drishti.main] INFO: ============================================================
+16:17:53 [drishti.main] INFO:   DRISHTI - Visual Assistance System
+16:17:53 [drishti.main] INFO:   Starting up...
+16:17:53 [drishti.main] INFO: ============================================================
+16:17:53 [drishti.main] INFO: Initializing components...
+16:17:53 [drishti.stream] INFO: Stream receiver configured: udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000
+16:17:53 [drishti.yolo] INFO: Loading YOLO model: yolov8n.pt
+16:17:53 [drishti.yolo] INFO: YOLO model loaded successfully
+16:17:53 [drishti.blip] INFO: BLIP will use device: cuda
+16:17:53 [drishti.tts] INFO: TTS engine initialized: gtts
+16:17:53 [drishti.main] INFO: Checking Pi connection...
+16:17:53 [drishti.pi_comm] INFO: Connecting to Pi at 10.42.0.50...
+16:17:55 [drishti.pi_comm] INFO: Connected to Pi successfully
+16:17:55 [drishti.pi_comm] INFO: Pi hostname: raspberrypi
+16:17:55 [drishti.main] INFO: ✓ Pi connected
+16:17:55 [drishti.main] INFO: Starting video stream receiver...
+16:17:55 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+16:17:55 [drishti.stream] INFO: Stream receiver started (waiting for camera UDP packets…)
+16:17:55 [drishti.main] INFO: Preloading BLIP model in background...
+16:17:55 [drishti.blip] INFO: Loading BLIP model: Salesforce/blip-image-captioning-large
+16:17:55 [drishti.blip] INFO: This may take a moment on first run...
+16:17:55 [drishti.cmd_server] INFO: Command server listening on port 9090
+16:17:55 [drishti.main] INFO: ✓ DRISHTI is ready!
+16:17:55 [drishti.main] INFO: ────────────────────────────────────────
+16:17:55 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+16:17:55 [drishti.main] INFO: Controls (keyboard):
+16:17:55 [drishti.main] INFO:   1 / Space : Capture & Describe
+16:17:55 [drishti.main] INFO:   2 / M     : Cycle BLIP mode
+16:17:55 [drishti.main] INFO:   3 / A     : Toggle YOLO alerts
+16:17:55 [drishti.main] INFO:   Q / ESC   : Quit
+16:17:55 [drishti.main] INFO: ────────────────────────────────────────
+16:17:55 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 46490)
+16:17:55 [drishti.main] INFO: Command received: capture
+16:17:55 [drishti.main] INFO: 📸 Capturing frame...
+16:17:55 [drishti.stream] WARNING: No frame available for capture
+16:17:55 [drishti.main] ERROR: No frame available!
+16:17:55 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 46492)
+16:17:55 [drishti.main] INFO: Command received: cycle_mode
+16:17:55 [drishti.blip] INFO: Mode changed to: short
+16:17:55 [drishti.main] INFO: 🔄 Mode changed to: short
+16:17:55 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:17:56 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:17:56 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:17:56 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:17:56 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:17:57 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 59226)
+16:17:57 [drishti.main] INFO: Command received: cycle_mode
+16:17:57 [drishti.blip] INFO: Mode changed to: story
+16:17:57 [drishti.main] INFO: 🔄 Mode changed to: story
+16:17:57 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:17:57 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:17:58 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:17:58 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:17:58 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:17:58 [drishti.stream] INFO: ✓ First frame received — stream is live! (800×600)
+16:17:58 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 40854)
+16:18:00 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 59236)
+16:18:00 [drishti.main] INFO: Command received: cycle_mode
+16:18:00 [drishti.blip] INFO: Mode changed to: default
+16:18:00 [drishti.main] INFO: 🔄 Mode changed to: default
+16:18:00 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+16:18:00 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:00 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:00 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:01 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:01 [drishti.blip] INFO: ✓ BLIP model loaded on cuda
+16:18:01 [drishti.main] INFO: ✓ BLIP model preloaded
+16:18:01 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 59252)
+16:18:01 [drishti.main] INFO: Command received: cycle_mode
+16:18:01 [drishti.blip] INFO: Mode changed to: short
+16:18:01 [drishti.main] INFO: 🔄 Mode changed to: short
+16:18:01 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:18:02 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:02 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:02 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:03 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:04 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 59260)
+16:18:04 [drishti.main] INFO: Command received: cycle_mode
+16:18:04 [drishti.blip] INFO: Mode changed to: story
+16:18:04 [drishti.main] INFO: 🔄 Mode changed to: story
+16:18:04 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:18:04 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:04 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:04 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:05 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:05 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 40864)
+16:18:06 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 59266)
+16:18:06 [drishti.main] INFO: Command received: cycle_mode
+16:18:06 [drishti.blip] INFO: Mode changed to: default
+16:18:06 [drishti.main] INFO: 🔄 Mode changed to: default
+16:18:06 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+16:18:06 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:06 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:06 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:07 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:08 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 59360)
+16:18:08 [drishti.main] INFO: Command received: cycle_mode
+16:18:08 [drishti.blip] INFO: Mode changed to: short
+16:18:08 [drishti.main] INFO: 🔄 Mode changed to: short
+16:18:08 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:18:08 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:09 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:09 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:09 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:10 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 59364)
+16:18:10 [drishti.main] INFO: Command received: cycle_mode
+16:18:10 [drishti.blip] INFO: Mode changed to: story
+16:18:10 [drishti.main] INFO: 🔄 Mode changed to: story
+16:18:10 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:18:11 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:11 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:11 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:11 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:12 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 48416)
+16:18:12 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 59372)
+16:18:12 [drishti.main] INFO: Command received: cycle_mode
+16:18:12 [drishti.blip] INFO: Mode changed to: default
+16:18:12 [drishti.main] INFO: 🔄 Mode changed to: default
+16:18:12 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+16:18:13 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:13 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:13 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:13 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:15 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 59388)
+16:18:15 [drishti.main] INFO: Command received: cycle_mode
+16:18:15 [drishti.blip] INFO: Mode changed to: short
+16:18:15 [drishti.main] INFO: 🔄 Mode changed to: short
+16:18:15 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:18:15 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:15 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:16 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:16 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:17 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 33844)
+16:18:17 [drishti.main] INFO: Command received: cycle_mode
+16:18:17 [drishti.blip] INFO: Mode changed to: story
+16:18:17 [drishti.main] INFO: 🔄 Mode changed to: story
+16:18:17 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:18:17 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:17 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:17 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:18 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:19 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 48018)
+16:18:19 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 33860)
+16:18:19 [drishti.main] INFO: Command received: cycle_mode
+16:18:19 [drishti.blip] INFO: Mode changed to: default
+16:18:19 [drishti.main] INFO: 🔄 Mode changed to: default
+16:18:19 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+16:18:20 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:20 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:20 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:20 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:21 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 33866)
+16:18:21 [drishti.main] INFO: Command received: cycle_mode
+16:18:21 [drishti.blip] INFO: Mode changed to: short
+16:18:21 [drishti.main] INFO: 🔄 Mode changed to: short
+16:18:21 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:18:22 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:22 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:22 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:22 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:24 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 33870)
+16:18:24 [drishti.main] INFO: Command received: cycle_mode
+16:18:24 [drishti.blip] INFO: Mode changed to: story
+16:18:24 [drishti.main] INFO: 🔄 Mode changed to: story
+16:18:24 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:18:24 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:24 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:24 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:25 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:26 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 33886)
+16:18:26 [drishti.main] INFO: Command received: cycle_mode
+16:18:26 [drishti.blip] INFO: Mode changed to: default
+16:18:26 [drishti.main] INFO: 🔄 Mode changed to: default
+16:18:26 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+16:18:26 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 48020)
+16:18:26 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:26 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:26 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:26 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:28 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 50660)
+16:18:28 [drishti.main] INFO: Command received: cycle_mode
+16:18:28 [drishti.blip] INFO: Mode changed to: short
+16:18:28 [drishti.main] INFO: 🔄 Mode changed to: short
+16:18:28 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:18:28 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:28 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:28 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:29 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:30 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 50676)
+16:18:30 [drishti.main] INFO: Command received: cycle_mode
+16:18:30 [drishti.blip] INFO: Mode changed to: story
+16:18:30 [drishti.main] INFO: 🔄 Mode changed to: story
+16:18:30 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:18:30 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 40060)
+16:18:30 [drishti.main] INFO: Command received: capture
+16:18:30 [drishti.main] INFO: 📸 Capturing frame...
+16:18:30 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+16:18:30 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_161830.jpg
+16:18:30 [drishti.main] INFO: 🧠 Generating detailed scene description...
+16:18:30 [drishti.blip] INFO: Generating default description...
+16:18:30 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 50684)
+16:18:30 [drishti.main] INFO: Command received: toggle_yolo
+16:18:30 [drishti.yolo] INFO: YOLO alerts enabled
+16:18:30 [drishti.main] INFO: 🎯 YOLO people-detection activated
+16:18:30 [drishti.tts] INFO: Synthesizing speech (49 chars)...
+16:18:30 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:31 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:31 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:31 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+16:18:31 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+16:18:31 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:31 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:31 [drishti.blip] INFO: Description (42 chars): A bunch of lights that are on in the dark....
+16:18:31 [drishti.main] INFO: Description: A bunch of lights that are on in the dark.
+16:18:31 [drishti.main] INFO: 🔊 Converting to speech...
+16:18:31 [drishti.tts] INFO: Synthesizing speech (42 chars)...
+16:18:31 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:32 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_161830.mp3
+16:18:32 [drishti.main] INFO: 📤 Sending audio to Pi...
+16:18:32 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 50688)
+16:18:32 [drishti.main] INFO: Command received: cycle_mode
+16:18:32 [drishti.blip] INFO: Mode changed to: default
+16:18:32 [drishti.main] INFO: 🔄 Mode changed to: default
+16:18:32 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+16:18:32 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_161830.mp3
+16:18:32 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:32 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:32 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 50690)
+16:18:32 [drishti.main] INFO: Command received: capture
+16:18:32 [drishti.main] WARNING: Already processing a capture
+16:18:32 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:32 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:32 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:32 [drishti.main] INFO: ✓ Audio playing on Pi
+16:18:33 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:33 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 40070)
+16:18:40 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46560)
+16:18:45 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46566)
+16:18:45 [drishti.main] INFO: Command received: capture
+16:18:45 [drishti.main] INFO: 📸 Capturing frame...
+16:18:45 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+16:18:45 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_161845.jpg
+16:18:45 [drishti.main] INFO: 🧠 Generating detailed scene description...
+16:18:45 [drishti.blip] INFO: Generating default description...
+16:18:45 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 36854)
+16:18:45 [drishti.main] INFO: Command received: toggle_yolo
+16:18:45 [drishti.yolo] INFO: YOLO alerts disabled
+16:18:45 [drishti.main] INFO: 🎯 YOLO people-detection deactivated
+16:18:45 [drishti.tts] INFO: Synthesizing speech (21 chars)...
+16:18:45 [drishti.blip] INFO: Description (56 chars): A bunch of lights that are on the ceiling of a building....
+16:18:45 [drishti.main] INFO: Description: A bunch of lights that are on the ceiling of a building.
+16:18:45 [drishti.main] INFO: 🔊 Converting to speech...
+16:18:45 [drishti.tts] INFO: Synthesizing speech (56 chars)...
+16:18:46 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 36868)
+16:18:46 [drishti.main] INFO: Command received: cycle_mode
+16:18:46 [drishti.blip] INFO: Mode changed to: short
+16:18:46 [drishti.main] INFO: 🔄 Mode changed to: short
+16:18:46 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:18:46 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_161845.mp3
+16:18:46 [drishti.main] INFO: 📤 Sending audio to Pi...
+16:18:46 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+16:18:46 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_161845.mp3
+16:18:46 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+16:18:46 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:46 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:46 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:46 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:46 [drishti.main] INFO: ✓ Audio playing on Pi
+16:18:46 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:46 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:47 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:47 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46568)
+16:18:47 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:49 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 50830)
+16:18:49 [drishti.main] INFO: Command received: capture
+16:18:49 [drishti.main] WARNING: Already processing a capture
+16:18:49 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 50838)
+16:18:49 [drishti.main] INFO: Command received: cycle_mode
+16:18:49 [drishti.blip] INFO: Mode changed to: story
+16:18:49 [drishti.main] INFO: 🔄 Mode changed to: story
+16:18:49 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:18:49 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:49 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:49 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:50 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:50 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 50846)
+16:18:50 [drishti.main] INFO: Command received: cycle_mode
+16:18:50 [drishti.blip] INFO: Mode changed to: default
+16:18:50 [drishti.main] INFO: 🔄 Mode changed to: default
+16:18:50 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+16:18:51 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:51 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:51 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:51 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:52 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 50860)
+16:18:52 [drishti.main] INFO: Command received: cycle_mode
+16:18:52 [drishti.blip] INFO: Mode changed to: short
+16:18:52 [drishti.main] INFO: 🔄 Mode changed to: short
+16:18:52 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:18:52 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:52 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:52 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:52 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:53 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 50866)
+16:18:53 [drishti.main] INFO: Command received: cycle_mode
+16:18:53 [drishti.blip] INFO: Mode changed to: story
+16:18:53 [drishti.main] INFO: 🔄 Mode changed to: story
+16:18:53 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:18:54 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:54 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38662)
+16:18:54 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:54 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:54 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:55 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 50868)
+16:18:55 [drishti.main] INFO: Command received: cycle_mode
+16:18:55 [drishti.blip] INFO: Mode changed to: default
+16:18:55 [drishti.main] INFO: 🔄 Mode changed to: default
+16:18:55 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+16:18:56 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:56 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 50882)
+16:18:56 [drishti.main] INFO: Command received: cycle_mode
+16:18:56 [drishti.blip] INFO: Mode changed to: short
+16:18:56 [drishti.main] INFO: 🔄 Mode changed to: short
+16:18:56 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:18:56 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:56 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:56 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:56 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:56 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:56 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:57 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:18:58 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 34338)
+16:18:58 [drishti.main] INFO: Command received: cycle_mode
+16:18:58 [drishti.blip] INFO: Mode changed to: story
+16:18:58 [drishti.main] INFO: 🔄 Mode changed to: story
+16:18:58 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:18:58 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:18:58 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:18:58 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:18:58 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:00 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 34340)
+16:19:00 [drishti.main] INFO: Command received: cycle_mode
+16:19:00 [drishti.blip] INFO: Mode changed to: default
+16:19:00 [drishti.main] INFO: 🔄 Mode changed to: default
+16:19:00 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+16:19:01 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 32806)
+16:19:01 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:19:01 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:19:01 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:01 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:07 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46864)
+16:19:14 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46866)
+16:19:20 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42330)
+16:19:23 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42336)
+16:19:23 [drishti.main] INFO: Command received: capture
+16:19:23 [drishti.main] INFO: 📸 Capturing frame...
+16:19:23 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+16:19:23 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_161923.jpg
+16:19:23 [drishti.main] INFO: 🧠 Generating detailed scene description...
+16:19:23 [drishti.blip] INFO: Generating default description...
+16:19:24 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 38366)
+16:19:24 [drishti.main] INFO: Command received: toggle_yolo
+16:19:24 [drishti.yolo] INFO: YOLO alerts enabled
+16:19:24 [drishti.main] INFO: 🎯 YOLO people-detection activated
+16:19:24 [drishti.tts] INFO: Synthesizing speech (49 chars)...
+16:19:24 [drishti.blip] INFO: Description (42 chars): A bunch of lights that are on in the dark....
+16:19:24 [drishti.main] INFO: Description: A bunch of lights that are on in the dark.
+16:19:24 [drishti.main] INFO: 🔊 Converting to speech...
+16:19:24 [drishti.tts] INFO: Synthesizing speech (42 chars)...
+16:19:24 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+16:19:24 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_161923.mp3
+16:19:24 [drishti.main] INFO: 📤 Sending audio to Pi...
+16:19:24 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 38382)
+16:19:24 [drishti.main] INFO: Command received: cycle_mode
+16:19:24 [drishti.blip] INFO: Mode changed to: short
+16:19:24 [drishti.main] INFO: 🔄 Mode changed to: short
+16:19:24 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+16:19:24 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:19:24 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:24 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_161923.mp3
+16:19:25 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:25 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:19:25 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 38398)
+16:19:25 [drishti.main] INFO: Command received: capture
+16:19:25 [drishti.main] WARNING: Already processing a capture
+16:19:25 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:19:25 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:25 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:25 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:25 [drishti.main] INFO: ✓ Audio playing on Pi
+16:19:25 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:27 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58822)
+16:19:29 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 55522)
+16:19:29 [drishti.main] INFO: Command received: cycle_mode
+16:19:29 [drishti.blip] INFO: Mode changed to: story
+16:19:29 [drishti.main] INFO: 🔄 Mode changed to: story
+16:19:29 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:19:29 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:19:29 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:19:29 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:29 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:34 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58838)
+16:19:39 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 50058)
+16:19:39 [drishti.main] INFO: Command received: cycle_mode
+16:19:39 [drishti.blip] INFO: Mode changed to: default
+16:19:39 [drishti.main] INFO: 🔄 Mode changed to: default
+16:19:39 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+16:19:40 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:19:40 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:19:40 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:40 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:41 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 50074)
+16:19:43 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 50088)
+16:19:43 [drishti.main] INFO: Command received: capture
+16:19:43 [drishti.main] INFO: 📸 Capturing frame...
+16:19:43 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+16:19:43 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_161943.jpg
+16:19:43 [drishti.main] INFO: 🧠 Generating detailed scene description...
+16:19:43 [drishti.blip] INFO: Generating default description...
+16:19:43 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 51444)
+16:19:43 [drishti.main] INFO: Command received: toggle_yolo
+16:19:43 [drishti.yolo] INFO: YOLO alerts disabled
+16:19:43 [drishti.main] INFO: 🎯 YOLO people-detection deactivated
+16:19:43 [drishti.tts] INFO: Synthesizing speech (21 chars)...
+16:19:43 [drishti.blip] INFO: Description (56 chars): A bunch of lights that are on the ceiling of a building....
+16:19:43 [drishti.main] INFO: Description: A bunch of lights that are on the ceiling of a building.
+16:19:43 [drishti.main] INFO: 🔊 Converting to speech...
+16:19:43 [drishti.tts] INFO: Synthesizing speech (56 chars)...
+16:19:43 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+16:19:43 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_161943.mp3
+16:19:43 [drishti.main] INFO: 📤 Sending audio to Pi...
+16:19:43 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+16:19:43 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 51452)
+16:19:43 [drishti.main] INFO: Command received: cycle_mode
+16:19:43 [drishti.blip] INFO: Mode changed to: short
+16:19:43 [drishti.main] INFO: 🔄 Mode changed to: short
+16:19:43 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:19:43 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:44 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_161943.mp3
+16:19:44 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:19:44 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:44 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:19:44 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:44 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:44 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:44 [drishti.main] INFO: ✓ Audio playing on Pi
+16:19:45 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:46 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 52748)
+16:19:46 [drishti.main] INFO: Command received: cycle_mode
+16:19:46 [drishti.blip] INFO: Mode changed to: story
+16:19:46 [drishti.main] INFO: 🔄 Mode changed to: story
+16:19:46 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:19:47 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:19:47 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:19:47 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:47 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:48 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 41324)
+16:19:48 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 52752)
+16:19:48 [drishti.main] INFO: Command received: cycle_mode
+16:19:48 [drishti.blip] INFO: Mode changed to: default
+16:19:48 [drishti.main] INFO: 🔄 Mode changed to: default
+16:19:48 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+16:19:48 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:19:48 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:19:49 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:49 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:49 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 52756)
+16:19:49 [drishti.main] INFO: Command received: cycle_mode
+16:19:49 [drishti.blip] INFO: Mode changed to: short
+16:19:49 [drishti.main] INFO: 🔄 Mode changed to: short
+16:19:49 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:19:50 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:19:50 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:19:50 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:50 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:51 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 52772)
+16:19:51 [drishti.main] INFO: Command received: cycle_mode
+16:19:51 [drishti.blip] INFO: Mode changed to: story
+16:19:51 [drishti.main] INFO: 🔄 Mode changed to: story
+16:19:51 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:19:51 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:19:51 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:19:51 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:52 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:52 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 52788)
+16:19:52 [drishti.main] INFO: Command received: cycle_mode
+16:19:52 [drishti.blip] INFO: Mode changed to: default
+16:19:52 [drishti.main] INFO: 🔄 Mode changed to: default
+16:19:52 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+16:19:53 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:19:53 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:19:53 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:53 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:54 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 52792)
+16:19:54 [drishti.main] INFO: Command received: cycle_mode
+16:19:54 [drishti.blip] INFO: Mode changed to: short
+16:19:54 [drishti.main] INFO: 🔄 Mode changed to: short
+16:19:54 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:19:54 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:19:54 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:19:55 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:55 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 41330)
+16:19:55 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:55 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 52808)
+16:19:55 [drishti.main] INFO: Command received: cycle_mode
+16:19:55 [drishti.blip] INFO: Mode changed to: story
+16:19:55 [drishti.main] INFO: 🔄 Mode changed to: story
+16:19:55 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:19:56 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:19:56 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:19:56 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:56 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:57 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 41492)
+16:19:57 [drishti.main] INFO: Command received: cycle_mode
+16:19:57 [drishti.blip] INFO: Mode changed to: default
+16:19:57 [drishti.main] INFO: 🔄 Mode changed to: default
+16:19:57 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+16:19:57 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:19:57 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:19:57 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:57 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:58 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 41508)
+16:19:58 [drishti.main] INFO: Command received: cycle_mode
+16:19:58 [drishti.blip] INFO: Mode changed to: short
+16:19:58 [drishti.main] INFO: 🔄 Mode changed to: short
+16:19:58 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:19:59 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:19:59 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:19:59 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:19:59 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:19:59 [drishti.main] INFO: Shutting down DRISHTI...
+16:19:59 [drishti.stream] INFO: Stream receiver stopped
+16:19:59 [drishti.pi_comm] INFO: Disconnected from Pi
+16:19:59 [drishti.main] INFO: DRISHTI shutdown complete

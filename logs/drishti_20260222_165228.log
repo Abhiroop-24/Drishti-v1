@@ -1,0 +1,275 @@
+16:52:28 [drishti.main] INFO: ============================================================
+16:52:28 [drishti.main] INFO:   DRISHTI - Visual Assistance System
+16:52:28 [drishti.main] INFO:   Starting up...
+16:52:28 [drishti.main] INFO: ============================================================
+16:52:28 [drishti.main] INFO: Initializing components...
+16:52:28 [drishti.stream] INFO: Stream receiver configured: udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000
+16:52:28 [drishti.yolo] INFO: Loading YOLO model: yolov8n.pt
+16:52:28 [drishti.yolo] INFO: YOLO model loaded successfully
+16:52:28 [drishti.blip] INFO: BLIP will use device: cuda
+16:52:28 [drishti.tts] INFO: TTS engine initialized: gtts
+16:52:28 [drishti.main] INFO: Checking Pi connection...
+16:52:28 [drishti.pi_comm] INFO: Connecting to Pi at 10.42.0.50...
+16:52:30 [drishti.pi_comm] ERROR: Failed to connect to Pi: [Errno None] Unable to connect to port 22 on 10.42.0.50
+16:52:30 [drishti.main] WARNING: ⚠ Pi not connected - running in local mode
+16:52:30 [drishti.main] INFO: Starting video stream receiver...
+16:52:30 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+16:52:30 [drishti.stream] INFO: Stream receiver started (waiting for camera UDP packets…)
+16:52:30 [drishti.main] INFO: Preloading BLIP model in background...
+16:52:30 [drishti.blip] INFO: Loading BLIP model: Salesforce/blip-image-captioning-large
+16:52:30 [drishti.cmd_server] INFO: Command server listening on port 9090
+16:52:30 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+16:52:30 [drishti.main] INFO: ✓ DRISHTI is ready!
+16:52:30 [drishti.main] INFO: ────────────────────────────────────────
+16:52:30 [drishti.main] INFO: Controls (keyboard):
+16:52:30 [drishti.main] INFO:   1 / Space : Capture & Describe
+16:52:30 [drishti.main] INFO:   2 / M     : Cycle BLIP mode
+16:52:30 [drishti.main] INFO:   3 / A     : Toggle YOLO alerts
+16:52:30 [drishti.main] INFO:   Q / ESC   : Quit
+16:52:30 [drishti.main] INFO: ────────────────────────────────────────
+16:52:30 [huggingface_hub.utils._http] WARNING: '(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))"), '(Request ID: 7ae25346-2608-4455-a5fa-3afd335fc81a)')' thrown while requesting HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json
+16:52:30 [huggingface_hub.utils._http] WARNING: Retrying in 1s [Retry 1/5].
+16:52:31 [huggingface_hub.utils._http] WARNING: '(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))"), '(Request ID: 6bd66e37-a3fe-4e7c-9963-c124df091d4e)')' thrown while requesting HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json
+16:52:31 [huggingface_hub.utils._http] WARNING: Retrying in 2s [Retry 2/5].
+16:52:33 [huggingface_hub.utils._http] WARNING: '(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))"), '(Request ID: 266fc04b-9c61-4db0-b695-924c07482361)')' thrown while requesting HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json
+16:52:33 [huggingface_hub.utils._http] WARNING: Retrying in 4s [Retry 3/5].
+16:52:37 [huggingface_hub.utils._http] WARNING: '(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))"), '(Request ID: 0386a10f-30f9-4366-9ff0-f0c7b84a8bb4)')' thrown while requesting HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json
+16:52:37 [huggingface_hub.utils._http] WARNING: Retrying in 8s [Retry 4/5].
+16:52:38 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 41906)
+16:52:45 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 37406)
+16:52:45 [huggingface_hub.utils._http] WARNING: '(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))"), '(Request ID: 0c9eb7a1-c3d0-46b4-9d43-58b821855b65)')' thrown while requesting HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json
+16:52:45 [huggingface_hub.utils._http] WARNING: Retrying in 8s [Retry 5/5].
+16:52:46 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 s…
+16:52:48 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+16:52:48 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+16:52:52 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 37408)
+16:52:53 [huggingface_hub.utils._http] WARNING: '(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))"), '(Request ID: 75255989-e46b-4a66-b8e0-742037a738a1)')' thrown while requesting HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json
+16:52:53 [drishti.main] ERROR: Failed to preload BLIP: (MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))"), '(Request ID: 75255989-e46b-4a66-b8e0-742037a738a1)')
+16:52:58 [drishti.stream] INFO: ✓ First frame received — stream is live! (800×600)
+16:52:59 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 33184)
+16:53:05 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34844)
+16:53:12 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34860)
+16:53:19 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58902)
+16:53:25 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 47672)
+16:53:32 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 47676)
+16:53:39 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52610)
+16:53:45 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 53336)
+16:53:52 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 53338)
+16:53:52 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 53350)
+16:53:52 [drishti.main] INFO: Command received: toggle_yolo
+16:53:52 [drishti.yolo] INFO: YOLO alerts enabled
+16:53:52 [drishti.main] INFO: 🎯 YOLO people-detection activated
+16:53:52 [drishti.tts] INFO: Synthesizing speech (49 chars)...
+16:53:53 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+16:53:53 [drishti.pi_comm] INFO: Connecting to Pi at 10.42.0.50...
+16:53:54 [drishti.pi_comm] INFO: Connected to Pi successfully
+16:53:54 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+16:53:54 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:53:54 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:53:59 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 48264)
+16:54:05 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34886)
+16:54:08 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 52968)
+16:54:08 [drishti.main] INFO: Command received: cycle_mode
+16:54:08 [drishti.blip] INFO: Mode changed to: short
+16:54:08 [drishti.main] INFO: 🔄 Mode changed to: short
+16:54:08 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+16:54:08 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+16:54:08 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+16:54:08 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:54:08 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:54:12 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34902)
+16:54:14 [drishti.main] INFO: 👤 YOLO: Person nearby at 1.7999999523162842 meters, to your center.
+16:54:14 [drishti.tts] INFO: Synthesizing speech (59 chars)...
+16:54:14 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771759454.mp3
+16:54:14 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771759454.mp3
+16:54:14 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:54:14 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:54:19 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 47052)
+16:54:21 [drishti.main] INFO: 👤 YOLO: Person nearby at 2.5999999046325684 meters, to your center.
+16:54:21 [drishti.tts] INFO: Synthesizing speech (59 chars)...
+16:54:21 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771759461.mp3
+16:54:22 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771759461.mp3
+16:54:22 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:54:22 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:54:26 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42060)
+16:54:27 [drishti.main] INFO: 👤 YOLO: 1 more people detected further away.
+16:54:27 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:54:27 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771759467.mp3
+16:54:27 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771759467.mp3
+16:54:27 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:54:27 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:54:27 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 56864)
+16:54:27 [drishti.main] INFO: Command received: capture
+16:54:27 [drishti.main] INFO: 📸 Capturing frame...
+16:54:27 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+16:54:27 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_165427.jpg
+16:54:27 [drishti.main] INFO: 🧠 Generating detailed scene description...
+16:54:27 [drishti.blip] INFO: Loading BLIP model: Salesforce/blip-image-captioning-large
+16:54:28 [huggingface_hub.utils._http] WARNING: '(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))"), '(Request ID: 1fde9a06-7e3a-4546-b95e-5fc13a46268a)')' thrown while requesting HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json
+16:54:28 [huggingface_hub.utils._http] WARNING: Retrying in 1s [Retry 1/5].
+16:54:29 [huggingface_hub.utils._http] WARNING: '(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))"), '(Request ID: 38577957-31d7-4c3e-8bab-54807d15cf4c)')' thrown while requesting HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json
+16:54:29 [huggingface_hub.utils._http] WARNING: Retrying in 2s [Retry 2/5].
+16:54:31 [huggingface_hub.utils._http] WARNING: '(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))"), '(Request ID: 908b3702-2e08-4aec-81d1-cb60e4773b9c)')' thrown while requesting HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json
+16:54:31 [huggingface_hub.utils._http] WARNING: Retrying in 4s [Retry 3/5].
+16:54:32 [drishti.main] INFO: 👤 YOLO: 1 more people detected further away.
+16:54:32 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:54:32 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771759472.mp3
+16:54:32 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771759472.mp3
+16:54:32 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:54:32 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:54:33 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42072)
+16:54:35 [huggingface_hub.utils._http] WARNING: '(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))"), '(Request ID: 52aca3fe-4701-4153-9a44-ac3fdfab650d)')' thrown while requesting HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json
+16:54:35 [huggingface_hub.utils._http] WARNING: Retrying in 8s [Retry 4/5].
+16:54:37 [drishti.main] INFO: 👤 YOLO: 1 more people detected further away.
+16:54:37 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:54:37 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771759477.mp3
+16:54:37 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771759477.mp3
+16:54:37 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:54:38 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:54:39 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 53940)
+16:54:42 [drishti.main] INFO: 👤 YOLO: 1 more people detected further away.
+16:54:42 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+16:54:42 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771759482.mp3
+16:54:42 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771759482.mp3
+16:54:42 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:54:43 [huggingface_hub.utils._http] WARNING: '(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))"), '(Request ID: 115bd461-d77e-4dba-8fda-2cd886ad4642)')' thrown while requesting HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json
+16:54:43 [huggingface_hub.utils._http] WARNING: Retrying in 8s [Retry 5/5].
+16:54:43 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:54:43 [drishti.cmd_server] INFO: Connection from ('10.42.0.50', 34930)
+16:54:43 [drishti.main] INFO: Command received: toggle_yolo
+16:54:43 [drishti.yolo] INFO: YOLO alerts disabled
+16:54:43 [drishti.main] INFO: 🎯 YOLO people-detection deactivated
+16:54:43 [drishti.tts] INFO: Synthesizing speech (21 chars)...
+16:54:43 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+16:54:43 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+16:54:44 [drishti.pi_comm] INFO: Audio transferred, playing...
+16:54:44 [drishti.pi_comm] INFO: Audio playback started on Pi
+16:54:46 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42090)
+16:54:51 [huggingface_hub.utils._http] WARNING: '(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))"), '(Request ID: 05c65060-b6f5-4d5d-8a18-fc9b8fb6106b)')' thrown while requesting HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json
+16:54:51 [drishti.main] ERROR: Capture & describe error: (MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))"), '(Request ID: 05c65060-b6f5-4d5d-8a18-fc9b8fb6106b)')
+Traceback (most recent call last):
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/urllib3/util/ssl_.py", line 483, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/urllib3/util/ssl_.py", line 527, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 1042, in _create
+    self.do_handshake()
+  File "/usr/lib/python3.12/ssl.py", line 1320, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/abhiroop/Documents/DRISHTI/main.py", line 529, in _do_capture_and_describe
+    description = self.blip.describe(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/blip_describer.py", line 62, in describe
+    self.load_model()
+  File "/home/abhiroop/Documents/DRISHTI/blip_describer.py", line 37, in load_model
+    self.processor = BlipProcessor.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/processing_utils.py", line 974, in from_pretrained
+    args = cls._get_arguments_from_pretrained(pretrained_model_name_or_path, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/processing_utils.py", line 1020, in _get_arguments_from_pretrained
+    args.append(attribute_class.from_pretrained(pretrained_model_name_or_path, **kwargs))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/image_processing_base.py", line 209, in from_pretrained
+    image_processor_dict, kwargs = cls.get_image_processor_dict(pretrained_model_name_or_path, **kwargs)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/image_processing_base.py", line 341, in get_image_processor_dict
+    resolved_image_processor_file = cached_file(
+                                    ^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 403, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1077, in _hf_hub_download_to_cache_dir
+    (url_to_download, etag, commit_hash, expected_size, xet_file_data, head_call_error) = _get_metadata_or_catch_error(
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1550, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1467, in get_hf_file_metadata
+    r = _request_wrapper(
+        ^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 283, in _request_wrapper
+    response = _request_wrapper(
+               ^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 306, in _request_wrapper
+    response = http_backoff(method=method, url=url, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 326, in http_backoff
+    raise err
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 307, in http_backoff
+    response = session.request(method=method, url=url, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 96, in send
+    return super().send(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhiroop/Documents/DRISHTI/.venv/lib/python3.12/site-packages/requests/adapters.py", line 675, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: (MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))"), '(Request ID: 05c65060-b6f5-4d5d-8a18-fc9b8fb6106b)')
+16:54:53 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42092)
+16:54:59 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 51442)
+16:55:06 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34026)
+16:55:13 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34036)
+16:55:19 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 54088)
+16:55:22 [drishti.main] INFO: Shutting down DRISHTI...
+16:55:23 [drishti.stream] INFO: Stream receiver stopped
+16:55:23 [drishti.pi_comm] INFO: Disconnected from Pi
+16:55:23 [drishti.main] INFO: DRISHTI shutdown complete

@@ -1,0 +1,680 @@
+14:52:48 [drishti.main] INFO: ============================================================
+14:52:48 [drishti.main] INFO:   DRISHTI - Visual Assistance System
+14:52:48 [drishti.main] INFO:   Starting up...
+14:52:48 [drishti.main] INFO: ============================================================
+14:52:48 [drishti.main] INFO: Initializing components...
+14:52:48 [drishti.stream] INFO: Stream receiver configured: udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000
+14:52:48 [drishti.yolo] INFO: Loading YOLO model: yolov8n.pt
+14:52:48 [drishti.yolo] INFO: YOLO model loaded successfully
+14:52:48 [drishti.blip] INFO: BLIP will use device: cuda
+14:52:48 [drishti.tts] INFO: TTS engine initialized: gtts
+14:52:48 [drishti.main] INFO: Checking Pi connection...
+14:52:48 [drishti.pi_comm] INFO: Connecting to Pi at 10.42.0.50...
+14:52:49 [drishti.pi_comm] INFO: Connected to Pi successfully
+14:52:50 [drishti.pi_comm] INFO: Pi hostname: raspberrypi
+14:52:50 [drishti.main] INFO: ✓ Pi connected
+14:52:50 [drishti.main] INFO: Starting video stream receiver...
+14:52:50 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+14:52:50 [drishti.stream] INFO: Stream receiver started (waiting for camera UDP packets…)
+14:52:50 [drishti.main] INFO: Preloading BLIP model in background...
+14:52:50 [drishti.blip] INFO: Loading BLIP model: Salesforce/blip-image-captioning-large
+14:52:50 [drishti.blip] INFO: This may take a moment on first run...
+14:52:50 [drishti.cmd_server] INFO: Command server listening on port 9090
+14:52:50 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+14:52:50 [drishti.main] INFO: ✓ DRISHTI is ready!
+14:52:50 [drishti.main] INFO: ────────────────────────────────────────
+14:52:50 [drishti.main] INFO: Controls (keyboard):
+14:52:50 [drishti.main] INFO:   1 / Space : Capture & Describe
+14:52:50 [drishti.main] INFO:   2 / M     : Cycle BLIP mode
+14:52:50 [drishti.main] INFO:   3 / A     : Toggle YOLO alerts
+14:52:50 [drishti.main] INFO:   Q / ESC   : Quit
+14:52:50 [drishti.main] INFO: ────────────────────────────────────────
+14:52:52 [drishti.stream] INFO: ✓ First frame received — stream is live! (800×600)
+14:52:52 [httpx] INFO: HTTP Request: GET https://huggingface.co/api/models/Salesforce/blip-image-captioning-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+14:52:52 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+14:52:52 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 57940)
+14:52:53 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/chat_template.json "HTTP/1.1 404 Not Found"
+14:52:53 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+14:52:53 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/audio_tokenizer_config.json "HTTP/1.1 404 Not Found"
+14:52:54 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+14:52:54 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+14:52:54 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-large/353689b859fcf0523410b1806dace5fb46ecdf41/preprocessor_config.json "HTTP/1.1 200 OK"
+14:52:55 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+14:52:55 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+14:52:55 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-large/353689b859fcf0523410b1806dace5fb46ecdf41/preprocessor_config.json "HTTP/1.1 200 OK"
+14:52:55 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+14:52:56 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-large/353689b859fcf0523410b1806dace5fb46ecdf41/config.json "HTTP/1.1 200 OK"
+14:52:56 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+14:52:56 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-large/353689b859fcf0523410b1806dace5fb46ecdf41/tokenizer_config.json "HTTP/1.1 200 OK"
+14:52:57 [httpx] INFO: HTTP Request: GET https://huggingface.co/api/models/Salesforce/blip-image-captioning-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+14:52:57 [httpx] INFO: HTTP Request: GET https://huggingface.co/api/models/Salesforce/blip-image-captioning-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+14:52:58 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+14:52:58 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-large/353689b859fcf0523410b1806dace5fb46ecdf41/config.json "HTTP/1.1 200 OK"
+14:52:58 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+14:52:59 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58386)
+14:53:00 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/generation_config.json "HTTP/1.1 404 Not Found"
+14:53:00 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/Salesforce/blip-image-captioning-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+14:53:00 [httpx] INFO: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/blip-image-captioning-large/353689b859fcf0523410b1806dace5fb46ecdf41/config.json "HTTP/1.1 200 OK"
+14:53:00 [drishti.blip] INFO: BLIP model loaded successfully
+14:53:00 [drishti.main] INFO: ✓ BLIP model preloaded
+14:53:06 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58390)
+14:53:12 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 45060)
+14:53:18 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46616)
+14:53:18 [drishti.main] INFO: Command received: capture
+14:53:18 [drishti.main] INFO: 📸 Capturing frame...
+14:53:18 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+14:53:18 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_145318.jpg
+14:53:18 [drishti.main] INFO: 🧠 Generating default description...
+14:53:18 [drishti.blip] INFO: Generating default description...
+14:53:19 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46618)
+14:53:19 [drishti.blip] INFO: Description generated (210 chars)
+14:53:19 [drishti.main] INFO: Description: A woman holding a remote control in a room full of people. Additionally, 2 people detected:
+  person 1: 1.7000000476837158m away, to your center (close)
+  person 2: 16.899999618530273m away, to your right (far)
+14:53:19 [drishti.main] INFO: 🔊 Converting to speech...
+14:53:19 [drishti.tts] INFO: Synthesizing speech (210 chars)...
+14:53:24 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_145318.mp3
+14:53:24 [drishti.main] INFO: 📤 Sending audio to Pi...
+14:53:24 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_145318.mp3
+14:53:24 [drishti.pi_comm] INFO: Audio transferred, playing...
+14:53:25 [drishti.pi_comm] INFO: Audio playback started on Pi
+14:53:25 [drishti.main] INFO: ✓ Audio playing on Pi
+14:53:26 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46634)
+14:53:32 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 54038)
+14:53:39 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 57558)
+14:53:46 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 57570)
+14:53:52 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 50720)
+14:53:59 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46236)
+14:54:06 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46244)
+14:54:12 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58626)
+14:54:19 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38884)
+14:54:26 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38888)
+14:54:26 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38900)
+14:54:26 [drishti.main] INFO: Command received: capture
+14:54:26 [drishti.main] INFO: 📸 Capturing frame...
+14:54:26 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+14:54:26 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_145426.jpg
+14:54:26 [drishti.main] INFO: 🧠 Generating default description...
+14:54:26 [drishti.blip] INFO: Generating default description...
+14:54:27 [drishti.blip] INFO: Description generated (223 chars)
+14:54:27 [drishti.main] INFO: Description: A woman in a black shirt and jeans holding a nintendo wii controller. Additionally, 2 people detected:
+  person 1: 1.7000000476837158m away, to your right (close)
+  person 2: 1.7999999523162842m away, to your center (close)
+14:54:27 [drishti.main] INFO: 🔊 Converting to speech...
+14:54:27 [drishti.tts] INFO: Synthesizing speech (223 chars)...
+14:54:31 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_145426.mp3
+14:54:31 [drishti.main] INFO: 📤 Sending audio to Pi...
+14:54:31 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_145426.mp3
+14:54:31 [drishti.pi_comm] INFO: Audio transferred, playing...
+14:54:31 [drishti.pi_comm] INFO: Audio playback started on Pi
+14:54:31 [drishti.main] INFO: ✓ Audio playing on Pi
+14:54:32 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52350)
+14:54:39 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52116)
+14:54:46 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52118)
+14:54:53 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 59888)
+14:54:59 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 48990)
+14:55:03 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 49002)
+14:55:03 [drishti.main] INFO: Command received: capture
+14:55:03 [drishti.main] INFO: 📸 Capturing frame...
+14:55:03 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+14:55:03 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_145503.jpg
+14:55:03 [drishti.main] INFO: 🧠 Generating default description...
+14:55:03 [drishti.blip] INFO: Generating default description...
+14:55:03 [drishti.blip] INFO: Description generated (263 chars)
+14:55:03 [drishti.main] INFO: Description: A group of people sitting around a table with laptops. Additionally, 3 people detected:
+  person 1: 1.7000000476837158m away, to your left (close)
+  person 2: 16.799999237060547m away, to your right (far)
+  person 3: 27.600000381469727m away, to your center (far)
+14:55:03 [drishti.main] INFO: 🔊 Converting to speech...
+14:55:03 [drishti.tts] INFO: Synthesizing speech (263 chars)...
+14:55:06 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 49010)
+14:55:08 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_145503.mp3
+14:55:08 [drishti.main] INFO: 📤 Sending audio to Pi...
+14:55:08 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_145503.mp3
+14:55:08 [drishti.pi_comm] INFO: Audio transferred, playing...
+14:55:08 [drishti.pi_comm] INFO: Audio playback started on Pi
+14:55:08 [drishti.main] INFO: ✓ Audio playing on Pi
+14:55:13 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34096)
+14:55:19 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52098)
+14:55:26 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52100)
+14:55:32 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58458)
+14:55:32 [drishti.main] INFO: Command received: capture
+14:55:32 [drishti.main] INFO: 📸 Capturing frame...
+14:55:32 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+14:55:32 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_145532.jpg
+14:55:32 [drishti.main] INFO: 🧠 Generating default description...
+14:55:32 [drishti.blip] INFO: Generating default description...
+14:55:33 [drishti.blip] INFO: Description generated (356 chars)
+14:55:33 [drishti.main] INFO: Description: A woman standing in front of a table with a laptop on it. Additionally, 5 people detected:
+  person 1: 2.200000047683716m away, to your center (close)
+  person 2: 14.0m away, to your center (far)
+  person 3: 15.899999618530273m away, to your right (far)
+  person 4: 16.5m away, to your right (far)
+  person 5: 29.600000381469727m away, to your center (far)
+14:55:33 [drishti.main] INFO: 🔊 Converting to speech...
+14:55:33 [drishti.tts] INFO: Synthesizing speech (356 chars)...
+14:55:33 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58468)
+14:55:39 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42066)
+14:55:40 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_145532.mp3
+14:55:40 [drishti.main] INFO: 📤 Sending audio to Pi...
+14:55:41 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_145532.mp3
+14:55:41 [drishti.pi_comm] INFO: Audio transferred, playing...
+14:55:41 [drishti.pi_comm] INFO: Audio playback started on Pi
+14:55:41 [drishti.main] INFO: ✓ Audio playing on Pi
+14:55:46 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42076)
+14:55:52 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42304)
+14:55:59 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46442)
+14:56:06 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46456)
+14:56:12 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 59580)
+14:56:19 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 33122)
+14:56:25 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 33136)
+14:56:25 [drishti.main] INFO: Command received: capture
+14:56:25 [drishti.main] INFO: 📸 Capturing frame...
+14:56:25 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+14:56:25 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_145625.jpg
+14:56:25 [drishti.main] INFO: 🧠 Generating default description...
+14:56:25 [drishti.blip] INFO: Generating default description...
+14:56:26 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 33150)
+14:56:26 [drishti.blip] INFO: Description generated (367 chars)
+14:56:26 [drishti.main] INFO: Description: A woman standing in front of a table with food on it. Additionally, 5 people detected:
+  person 1: 1.7000000476837158m away, to your right (close)
+  person 2: 1.7999999523162842m away, to your left (close)
+  person 3: 9.800000190734863m away, to your center (far)
+  person 4: 17.399999618530273m away, to your center (far)
+  person 5: 26.0m away, to your center (far)
+14:56:26 [drishti.main] INFO: 🔊 Converting to speech...
+14:56:26 [drishti.tts] INFO: Synthesizing speech (367 chars)...
+14:56:32 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34082)
+14:56:33 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_145625.mp3
+14:56:33 [drishti.main] INFO: 📤 Sending audio to Pi...
+14:56:33 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_145625.mp3
+14:56:33 [drishti.pi_comm] INFO: Audio transferred, playing...
+14:56:33 [drishti.pi_comm] INFO: Audio playback started on Pi
+14:56:33 [drishti.main] INFO: ✓ Audio playing on Pi
+14:56:39 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 41238)
+14:56:46 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 41244)
+14:56:52 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 49328)
+14:56:59 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34692)
+14:57:06 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34702)
+14:57:12 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38582)
+14:57:19 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 39968)
+14:57:26 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 39980)
+14:57:32 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52630)
+14:57:39 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 44260)
+14:57:45 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 44274)
+14:57:52 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 57764)
+14:57:59 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52724)
+14:58:05 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52726)
+14:58:12 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52858)
+14:58:18 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 47788)
+14:58:25 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 47804)
+14:58:32 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 60914)
+14:58:38 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 45256)
+14:58:45 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 45262)
+14:58:52 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 55746)
+14:58:58 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 55348)
+14:59:05 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 55360)
+14:59:12 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 43350)
+14:59:18 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 39480)
+14:59:25 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 39488)
+14:59:32 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 59102)
+14:59:38 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 44480)
+14:59:45 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 44482)
+14:59:52 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 36836)
+14:59:58 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 49472)
+15:00:05 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 49478)
+15:00:12 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 51370)
+15:00:18 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 59790)
+15:00:25 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 59798)
+15:00:31 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 s…
+15:00:32 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56302)
+15:00:33 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+15:00:33 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+15:00:35 [drishti.stream] INFO: ✓ First frame received — stream is live! (800×600)
+15:00:38 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56206)
+15:00:45 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56222)
+15:00:52 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 43350)
+15:00:58 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 40182)
+15:01:05 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 40196)
+15:01:11 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 57556)
+15:01:18 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 51420)
+15:01:25 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 51436)
+15:01:31 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58070)
+15:01:38 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 39514)
+15:01:45 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 39518)
+15:01:51 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56680)
+15:01:58 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 47444)
+15:01:58 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 47458)
+15:01:58 [drishti.main] INFO: Command received: cycle_mode
+15:01:58 [drishti.blip] INFO: BLIP mode changed to: short
+15:01:58 [drishti.main] INFO: 🔄 Mode changed to: short
+15:01:58 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+15:01:59 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+15:01:59 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+15:01:59 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:01:59 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:02:04 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 47464)
+15:02:08 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 47786)
+15:02:08 [drishti.main] INFO: Command received: capture
+15:02:08 [drishti.main] INFO: 📸 Capturing frame...
+15:02:08 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+15:02:08 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_150208.jpg
+15:02:08 [drishti.main] INFO: 🧠 Generating short description...
+15:02:08 [drishti.blip] INFO: Generating short description...
+15:02:09 [drishti.blip] INFO: Description generated (232 chars)
+15:02:09 [drishti.main] INFO: Description: A woman sitting at a table with a plate of food. Additionally, 3 people detected:
+  person 1: 2.0m away, to your center (close)
+  person 2: 3.0m away, to your right (medium)
+  person 3: 15.600000381469727m away, to your center (far)
+15:02:09 [drishti.main] INFO: 🔊 Converting to speech...
+15:02:09 [drishti.tts] INFO: Synthesizing speech (232 chars)...
+15:02:11 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 47788)
+15:02:13 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_150208.mp3
+15:02:13 [drishti.main] INFO: 📤 Sending audio to Pi...
+15:02:13 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_150208.mp3
+15:02:14 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:02:14 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:02:14 [drishti.main] INFO: ✓ Audio playing on Pi
+15:02:18 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 55180)
+15:02:24 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 55192)
+15:02:31 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 37096)
+15:02:36 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 37108)
+15:02:36 [drishti.main] INFO: Command received: toggle_yolo
+15:02:36 [drishti.yolo] INFO: YOLO alerts enabled
+15:02:36 [drishti.main] INFO: 🎯 YOLO alerts activated
+15:02:36 [drishti.tts] INFO: Synthesizing speech (73 chars)...
+15:02:36 [drishti.main] INFO: ⚠ ALERT: 2 people nearby.
+15:02:36 [drishti.tts] INFO: Synthesizing speech (16 chars)...
+15:02:36 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771752756.mp3
+15:02:36 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771752756.mp3
+15:02:36 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:02:37 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+15:02:37 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+15:02:37 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:02:37 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:02:37 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:02:38 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 50478)
+15:02:41 [drishti.main] INFO: ⚠ ALERT: Person nearby at 2.0 meters, to your center.
+15:02:41 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+15:02:41 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771752761.mp3
+15:02:42 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771752761.mp3
+15:02:42 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:02:42 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:02:45 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 50486)
+15:02:46 [drishti.main] INFO: ⚠ ALERT: 2 people nearby.
+15:02:46 [drishti.tts] INFO: Synthesizing speech (16 chars)...
+15:02:46 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771752766.mp3
+15:02:46 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771752766.mp3
+15:02:46 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:02:47 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:02:51 [drishti.main] INFO: ⚠ ALERT: 2 people nearby.
+15:02:51 [drishti.tts] INFO: Synthesizing speech (16 chars)...
+15:02:51 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771752771.mp3
+15:02:51 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42676)
+15:02:52 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771752771.mp3
+15:02:52 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:02:52 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:02:56 [drishti.main] INFO: ⚠ ALERT: Person nearby at 2.0 meters, to your center. 1 more people detected further away.
+15:02:56 [drishti.tts] INFO: Synthesizing speech (81 chars)...
+15:02:57 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771752776.mp3
+15:02:57 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771752776.mp3
+15:02:57 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:02:57 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:02:58 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58918)
+15:03:01 [drishti.main] INFO: ⚠ ALERT: Person nearby at 2.0 meters, to your center. 4 more people detected further away.
+15:03:01 [drishti.tts] INFO: Synthesizing speech (81 chars)...
+15:03:02 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771752781.mp3
+15:03:02 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771752781.mp3
+15:03:02 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:03:02 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:03:05 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58932)
+15:03:06 [drishti.main] INFO: ⚠ ALERT: Person nearby at 2.5 meters, to your center.
+15:03:06 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+15:03:07 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771752786.mp3
+15:03:07 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771752786.mp3
+15:03:07 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:03:07 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:03:10 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 47902)
+15:03:10 [drishti.main] INFO: Command received: cycle_mode
+15:03:10 [drishti.blip] INFO: BLIP mode changed to: story
+15:03:10 [drishti.main] INFO: 🔄 Mode changed to: story
+15:03:10 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+15:03:10 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+15:03:10 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+15:03:11 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:03:11 [drishti.main] INFO: ⚠ ALERT: Person nearby at 2.5 meters, to your center. 1 more people detected further away.
+15:03:11 [drishti.tts] INFO: Synthesizing speech (81 chars)...
+15:03:11 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:03:12 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771752791.mp3
+15:03:12 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771752791.mp3
+15:03:12 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:03:12 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:03:13 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 47916)
+15:03:16 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 47928)
+15:03:16 [drishti.main] INFO: Command received: capture
+15:03:16 [drishti.main] INFO: 📸 Capturing frame...
+15:03:16 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+15:03:16 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_150316.jpg
+15:03:16 [drishti.main] INFO: 🧠 Generating story description...
+15:03:16 [drishti.blip] INFO: Generating story description...
+15:03:16 [drishti.main] INFO: ⚠ ALERT: Person nearby at 2.0999999046325684 meters, to your center. 1 more people detected further away.
+15:03:16 [drishti.tts] INFO: Synthesizing speech (96 chars)...
+15:03:16 [drishti.blip] INFO: Description generated (237 chars)
+15:03:16 [drishti.main] INFO: Description: Zebra striped shirt girl pointing finger to see it on screen. In terms of space around you, 1 person detected:
+  person 1: 2.0m away, to your center (close). Imagine the sounds, textures, and atmosphere that might accompany such a scene.
+15:03:16 [drishti.main] INFO: 🔊 Converting to speech...
+15:03:16 [drishti.tts] INFO: Synthesizing speech (237 chars)...
+15:03:17 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771752796.mp3
+15:03:17 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771752796.mp3
+15:03:17 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:03:17 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:03:20 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 41492)
+15:03:20 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_150316.mp3
+15:03:20 [drishti.main] INFO: 📤 Sending audio to Pi...
+15:03:20 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_150316.mp3
+15:03:21 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:03:21 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:03:21 [drishti.main] INFO: ✓ Audio playing on Pi
+15:03:21 [drishti.main] INFO: ⚠ ALERT: Person nearby at 2.0 meters, to your center. 1 more people detected further away.
+15:03:21 [drishti.tts] INFO: Synthesizing speech (81 chars)...
+15:03:21 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771752801.mp3
+15:03:21 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771752801.mp3
+15:03:22 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:03:22 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:03:26 [drishti.main] INFO: ⚠ ALERT: Person nearby at 2.0 meters, to your center. 2 more people detected further away.
+15:03:26 [drishti.tts] INFO: Synthesizing speech (81 chars)...
+15:03:27 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771752806.mp3
+15:03:27 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771752806.mp3
+15:03:27 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 41504)
+15:03:27 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:03:27 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:03:31 [drishti.main] INFO: ⚠ ALERT: Person nearby at 2.0 meters, to your center. 1 more people detected further away.
+15:03:31 [drishti.tts] INFO: Synthesizing speech (81 chars)...
+15:03:32 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771752811.mp3
+15:03:32 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771752811.mp3
+15:03:32 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:03:32 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:03:34 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 39880)
+15:03:36 [drishti.main] INFO: ⚠ ALERT: 2 people nearby. 1 more people detected further away.
+15:03:36 [drishti.tts] INFO: Synthesizing speech (53 chars)...
+15:03:37 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 39892)
+15:03:37 [drishti.main] INFO: Command received: toggle_yolo
+15:03:37 [drishti.yolo] INFO: YOLO alerts disabled
+15:03:37 [drishti.main] INFO: 🎯 YOLO alerts deactivated
+15:03:37 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+15:03:37 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/alert_1771752816.mp3
+15:03:37 [drishti.pi_comm] INFO: Transferring audio to Pi: alert_1771752816.mp3
+15:03:37 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:03:37 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/yolo_toggle.mp3
+15:03:37 [drishti.pi_comm] INFO: Transferring audio to Pi: yolo_toggle.mp3
+15:03:37 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:03:37 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:03:38 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:03:41 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 54366)
+15:03:46 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 54376)
+15:03:46 [drishti.main] INFO: Command received: capture
+15:03:46 [drishti.main] INFO: 📸 Capturing frame...
+15:03:46 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+15:03:46 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_150346.jpg
+15:03:46 [drishti.main] INFO: 🧠 Generating story description...
+15:03:46 [drishti.blip] INFO: Generating story description...
+15:03:46 [drishti.blip] INFO: Description generated (362 chars)
+15:03:46 [drishti.main] INFO: Description: Brunette woman wearing glasses sitting at a table with plates of food. In terms of space around you, 3 people detected:
+  person 1: 2.0m away, to your center (close)
+  person 2: 2.5999999046325684m away, to your right (close)
+  person 3: 9.300000190734863m away, to your left (far). Imagine the sounds, textures, and atmosphere that might accompany such a scene.
+15:03:46 [drishti.main] INFO: 🔊 Converting to speech...
+15:03:46 [drishti.tts] INFO: Synthesizing speech (362 chars)...
+15:03:47 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 43654)
+15:03:54 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_150346.mp3
+15:03:54 [drishti.main] INFO: 📤 Sending audio to Pi...
+15:03:54 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 43658)
+15:03:54 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_150346.mp3
+15:03:54 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:03:55 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:03:55 [drishti.main] INFO: ✓ Audio playing on Pi
+15:04:01 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 55706)
+15:04:07 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 37532)
+15:04:14 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 37548)
+15:04:15 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 37550)
+15:04:15 [drishti.main] INFO: Command received: capture
+15:04:15 [drishti.main] WARNING: Already processing a capture
+15:04:21 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 55208)
+15:04:27 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 33228)
+15:04:34 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 33236)
+15:04:35 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 33240)
+15:04:35 [drishti.main] INFO: Command received: capture
+15:04:35 [drishti.main] INFO: 📸 Capturing frame...
+15:04:35 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+15:04:35 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_150435.jpg
+15:04:35 [drishti.main] INFO: 🧠 Generating story description...
+15:04:35 [drishti.blip] INFO: Generating story description...
+15:04:35 [drishti.blip] INFO: Description generated (412 chars)
+15:04:35 [drishti.main] INFO: Description: They are all waiting for their turn at the table to order food. In terms of space around you, 4 people detected:
+  person 1: 1.7999999523162842m away, to your center (close)
+  person 2: 11.699999809265137m away, to your left (far)
+  person 3: 13.5m away, to your left (far)
+  person 4: 21.200000762939453m away, to your right (far). Imagine the sounds, textures, and atmosphere that might accompany such a scene.
+15:04:35 [drishti.main] INFO: 🔊 Converting to speech...
+15:04:35 [drishti.tts] INFO: Synthesizing speech (412 chars)...
+15:04:41 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 59422)
+15:04:41 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 59436)
+15:04:41 [drishti.main] INFO: Command received: cycle_mode
+15:04:41 [drishti.blip] INFO: BLIP mode changed to: default
+15:04:41 [drishti.main] INFO: 🔄 Mode changed to: default
+15:04:41 [drishti.tts] INFO: Synthesizing speech (44 chars)...
+15:04:42 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+15:04:42 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+15:04:42 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:04:42 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:04:43 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_150435.mp3
+15:04:43 [drishti.main] INFO: 📤 Sending audio to Pi...
+15:04:43 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_150435.mp3
+15:04:43 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:04:44 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:04:44 [drishti.main] INFO: ✓ Audio playing on Pi
+15:04:47 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38006)
+15:04:54 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38012)
+15:05:01 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 37530)
+15:05:07 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 36838)
+15:05:14 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 36842)
+15:05:21 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 50806)
+15:05:27 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 40372)
+15:05:34 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 40388)
+15:05:41 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 53242)
+15:05:47 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52960)
+15:05:54 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52966)
+15:06:01 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 48512)
+15:06:07 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56402)
+15:06:14 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56408)
+15:06:20 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 57854)
+15:06:27 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 60146)
+15:06:34 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 60150)
+15:06:40 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 44080)
+15:06:47 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 44086)
+15:06:54 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52972)
+15:07:00 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 36788)
+15:07:07 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 36792)
+15:07:13 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 33980)
+15:07:20 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46726)
+15:07:27 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46728)
+15:07:33 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 57734)
+15:07:40 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 44278)
+15:07:47 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 44288)
+15:07:49 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 33400)
+15:07:49 [drishti.main] INFO: Command received: capture
+15:07:49 [drishti.main] INFO: 📸 Capturing frame...
+15:07:49 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+15:07:49 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_150749.jpg
+15:07:49 [drishti.main] INFO: 🧠 Generating default description...
+15:07:49 [drishti.blip] INFO: Generating default description...
+15:07:49 [drishti.blip] INFO: Description generated (282 chars)
+15:07:49 [drishti.main] INFO: Description: A group of people standing in front of a stage. Additionally, 4 people detected:
+  person 1: 6.400000095367432m away, to your center (far)
+  person 2: 6.5m away, to your left (far)
+  person 3: 6.5m away, to your center (far)
+  person 4: 9.100000381469727m away, to your center (far)
+15:07:49 [drishti.main] INFO: 🔊 Converting to speech...
+15:07:49 [drishti.tts] INFO: Synthesizing speech (282 chars)...
+15:07:54 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 33412)
+15:07:55 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_150749.mp3
+15:07:55 [drishti.main] INFO: 📤 Sending audio to Pi...
+15:07:56 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_150749.mp3
+15:07:56 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:07:56 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:07:56 [drishti.main] INFO: ✓ Audio playing on Pi
+15:08:00 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 35780)
+15:08:07 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 37874)
+15:08:14 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 37888)
+15:08:21 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 41012)
+15:08:27 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56044)
+15:08:34 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56052)
+15:08:41 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38458)
+15:08:42 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 38468)
+15:08:42 [drishti.main] INFO: Command received: cycle_mode
+15:08:42 [drishti.blip] INFO: BLIP mode changed to: short
+15:08:42 [drishti.main] INFO: 🔄 Mode changed to: short
+15:08:42 [drishti.tts] INFO: Synthesizing speech (33 chars)...
+15:08:43 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+15:08:43 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+15:08:43 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:08:43 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:08:47 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 53916)
+15:08:47 [drishti.main] INFO: Command received: cycle_mode
+15:08:47 [drishti.blip] INFO: BLIP mode changed to: story
+15:08:47 [drishti.main] INFO: 🔄 Mode changed to: story
+15:08:47 [drishti.tts] INFO: Synthesizing speech (36 chars)...
+15:08:48 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 53930)
+15:08:48 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/mode_change.mp3
+15:08:48 [drishti.pi_comm] INFO: Transferring audio to Pi: mode_change.mp3
+15:08:48 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:08:48 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:08:54 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 53940)
+15:08:57 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 53952)
+15:08:57 [drishti.main] INFO: Command received: capture
+15:08:57 [drishti.main] INFO: 📸 Capturing frame...
+15:08:57 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+15:08:57 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_150857.jpg
+15:08:57 [drishti.main] INFO: 🧠 Generating story description...
+15:08:57 [drishti.blip] INFO: Generating story description...
+15:08:57 [drishti.blip] INFO: Description generated (459 chars)
+15:08:57 [drishti.main] INFO: Description: Someone is getting ready to play wii or nintendo in a hall. In terms of space around you, 5 people detected:
+  person 1: 8.300000190734863m away, to your left (far)
+  person 2: 8.600000381469727m away, to your left (far)
+  person 3: 8.800000190734863m away, to your center (far)
+  person 4: 9.0m away, to your center (far)
+  person 5: 9.100000381469727m away, to your left (far). Imagine the sounds, textures, and atmosphere that might accompany such a scene.
+15:08:57 [drishti.main] INFO: 🔊 Converting to speech...
+15:08:57 [drishti.tts] INFO: Synthesizing speech (459 chars)...
+15:09:01 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 37900)
+15:09:06 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_150857.mp3
+15:09:06 [drishti.main] INFO: 📤 Sending audio to Pi...
+15:09:06 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_150857.mp3
+15:09:06 [drishti.pi_comm] INFO: Audio transferred, playing...
+15:09:07 [drishti.pi_comm] INFO: Audio playback started on Pi
+15:09:07 [drishti.main] INFO: ✓ Audio playing on Pi
+15:09:08 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 55502)
+15:09:14 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 55506)
+15:09:21 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 39318)
+15:09:28 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 55828)
+15:09:34 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 55834)
+15:09:42 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 60656)
+15:09:49 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34702)
+15:09:50 [drishti.stream] WARNING: Stream lost. Reconnecting in 2 s…
+15:09:52 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+15:09:52 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+15:09:54 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34718)
+15:09:56 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 34720)
+15:09:56 [drishti.main] INFO: Command received: capture
+15:09:59 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52028)
+15:10:04 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52032)
+15:10:06 [drishti.main] INFO: 📸 Capturing frame...
+15:10:06 [drishti.stream] INFO: Frame captured: (600, 800, 3)
+15:10:06 [drishti.main] INFO: Frame saved: /home/abhiroop/Documents/DRISHTI/captures/capture_20260222_151006.jpg
+15:10:08 [drishti.stream] WARNING: Stream lost. Reconnecting in 3 s…
+15:10:09 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56790)
+15:10:11 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+15:10:11 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+15:10:14 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56802)
+15:10:16 [drishti.main] INFO: 🧠 Generating story description...
+15:10:16 [drishti.blip] INFO: Generating story description...
+15:10:16 [drishti.blip] INFO: Description generated (262 chars)
+15:10:16 [drishti.main] INFO: Description: Indoors looking at a laptop computer and another person standing next to it. In terms of space around you, 1 person detected:
+  person 1: 9.600000381469727m away, to your left (far). Imagine the sounds, textures, and atmosphere that might accompany such a scene.
+15:10:20 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56902)
+15:10:26 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56906)
+15:10:26 [drishti.main] INFO: 🔊 Converting to speech...
+15:10:26 [drishti.tts] INFO: Synthesizing speech (262 chars)...
+15:10:27 [drishti.stream] WARNING: Stream lost. Reconnecting in 4 s…
+15:10:30 [drishti.tts] INFO: Audio saved: /home/abhiroop/Documents/DRISHTI/audio_output/describe_20260222_151006.mp3
+15:10:31 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+15:10:31 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+15:10:31 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46642)
+15:10:36 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 46650)
+15:10:40 [drishti.main] INFO: 📤 Sending audio to Pi...
+15:10:41 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 35624)
+15:10:46 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 35630)
+15:10:47 [drishti.stream] WARNING: Stream lost. Reconnecting in 7 s…
+15:10:50 [drishti.pi_comm] INFO: Transferring audio to Pi: describe_20260222_151006.mp3
+15:10:51 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42468)
+15:10:54 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+15:10:54 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+15:10:57 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42484)
+15:11:03 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 37992)
+15:11:08 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 55362)
+15:11:10 [drishti.stream] WARNING: Stream lost. Reconnecting in 10 s…
+15:11:13 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 55372)
+15:11:18 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 59536)
+15:11:20 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+15:11:20 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+15:11:23 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 59546)
+15:11:32 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 56218)
+15:11:35 [drishti.stream] WARNING: Stream lost. Reconnecting in 10 s…
+15:11:39 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 35766)
+15:11:44 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 35776)
+15:11:45 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+15:11:45 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+15:11:50 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58054)
+15:11:57 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58056)
+15:12:01 [drishti.stream] WARNING: Stream lost. Reconnecting in 10 s…
+15:12:02 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 54460)
+15:12:08 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 49796)
+15:12:11 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+15:12:11 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+15:12:15 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 49808)
+15:12:20 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 48522)
+15:12:25 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 48528)
+15:12:27 [drishti.stream] WARNING: Stream lost. Reconnecting in 10 s…
+15:12:30 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 49714)
+15:12:37 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+15:12:37 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+15:12:37 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 53832)
+15:12:43 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 53834)
+15:12:48 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42326)
+15:12:53 [drishti.stream] WARNING: Stream lost. Reconnecting in 10 s…
+15:12:55 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 42336)
+15:13:00 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58182)
+15:13:03 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+15:13:03 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+15:13:05 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 58186)
+15:13:10 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52816)
+15:13:15 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52820)
+15:13:19 [drishti.stream] WARNING: Stream lost. Reconnecting in 10 s…
+15:13:21 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 59330)
+15:13:27 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52556)
+15:13:29 [drishti.stream] INFO: ffmpeg starting: ffmpeg -fflags +nobuffer+discardcorrupt -flags low_delay -rtbufsize 32M -analyzeduration 1000000 -probesize 1000000 -i udp://0.0.0.0:8080?fifo_size=10000000&overrun_nonfatal=1&timeout=15000000 -f rawvideo -pix_fmt bgr24 -vf scale=800:600 -an -sn -vsync passthrough -v error pipe:1
+15:13:29 [drishti.stream] INFO: ffmpeg process started — waiting for first frame…
+15:13:32 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 52562)
+15:13:40 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 43914)
+15:13:44 [drishti.stream] WARNING: Stream lost. Reconnecting in 10 s…
+15:13:45 [drishti.cmd_server] INFO: Connection from ('127.0.0.1', 43928)
+15:13:51 [drishti.main] INFO: Shutting down DRISHTI...
+15:13:54 [drishti.stream] INFO: Stream receiver stopped
+15:14:04 [drishti.pi_comm] INFO: Disconnected from Pi
+15:14:04 [drishti.pi_comm] ERROR: Failed to send/play audio: Unable to open channel.
+15:14:04 [drishti.main] WARNING: Failed to play on Pi, playing locally
+15:14:04 [drishti.pi_comm] INFO: Connecting to Pi at 10.42.0.50...
+15:14:04 [drishti.main] INFO: DRISHTI shutdown complete
+15:14:04 [drishti.pi_comm] ERROR: Failed to connect to Pi: [Errno None] Unable to connect to port 22 on 10.42.0.50
+15:14:05 [drishti.stream] INFO: Stream receiver stopped
+15:14:05 [drishti.pi_comm] INFO: Disconnected from Pi
