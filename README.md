@@ -1,13 +1,13 @@
-# 👁️ DRISHTI - Visual Assistance System for the Visually Impaired
+# DRISHTI - Visual Assistance System for the Visually Impaired
 
-> *"Drishti" means "Vision" in Sanskrit*
+> "Drishti" means "Vision" in Sanskrit
 
 An AI-powered assistive device that helps blind people understand their surroundings through:
 - **Real-time people detection** with distance estimation (YOLOv8)
 - **Rich scene descriptions** in multiple modes (BLIP)
 - **Natural speech output** delivered through earphones (gTTS)
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
 ┌─────────────────────────┐     UDP Stream      ┌──────────────────────────┐
@@ -37,28 +37,28 @@ An AI-powered assistive device that helps blind people understand their surround
 └─────────────────────────┘                      └──────────────────────────┘
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 DRISHTI/
-├── main.py              # 🖥️  Main app (runs on laptop)
-├── config.py            # ⚙️  Configuration module
-├── yolo_detector.py     # 🎯  YOLOv8 people detection
-├── blip_describer.py    # 🧠  BLIP image captioning
-├── tts_engine.py        # 🔊  Text-to-Speech
-├── stream_receiver.py   # 📡  Video stream receiver
-├── pi_communicator.py   # 🔗  SSH/SCP Pi communication
-├── pi_gpio_handler.py   # 🔘  GPIO button handler (runs on Pi)
-├── .env                 # 🔑  Environment configuration
-├── requirements.txt     # 📦  Python dependencies
-├── deploy_to_pi.sh      # 🚀  Deploy scripts to Pi
+├── main.py              # Main app (runs on laptop)
+├── config.py            # Configuration module
+├── yolo_detector.py     # YOLOv8 people detection
+├── blip_describer.py    # BLIP image captioning
+├── tts_engine.py        # Text-to-Speech
+├── stream_receiver.py   # Video stream receiver
+├── pi_communicator.py   # SSH/SCP Pi communication
+├── pi_gpio_handler.py   # GPIO button handler (runs on Pi)
+├── .env                 # Environment configuration
+├── requirements.txt     # Python dependencies
+├── deploy_to_pi.sh      # Deploy scripts to Pi
 ├── pi_scripts/
-│   ├── start_camera.sh  # 📷  Camera stream script (Pi)
-│   └── setup_pi.sh      # 🔧  Pi setup script
-└── README.md            # 📖  This file
+│   ├── start_camera.sh  # Camera stream script (Pi)
+│   └── setup_pi.sh      # Pi setup script
+└── README.md            # This file
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Laptop Setup
 
@@ -101,13 +101,13 @@ python3 ~/drishti/pi_gpio_handler.py
 python3 main.py
 ```
 
-## 🔘 Button Controls
+## Button Controls
 
 | Button | GPIO | Action | LED Color |
 |--------|------|--------|-----------|
-| **B1** | GPIO17 | Capture & Describe | 🟡 Yellow → 🟢 Green → 🟣 Purple → ⚪ White |
-| **B2** | GPIO27 | Cycle BLIP Mode | 🔵 Cyan |
-| **B3** | GPIO22 | Toggle YOLO Alerts | 🟣 Purple |
+| **B1** | GPIO17 | Capture & Describe | Yellow → Green → Purple → White |
+| **B2** | GPIO27 | Cycle BLIP Mode | Cyan |
+| **B3** | GPIO22 | Toggle YOLO Alerts | Purple |
 
 ### Keyboard Shortcuts (Laptop)
 
@@ -118,19 +118,19 @@ python3 main.py
 | `3` / `A` | Toggle YOLO Alerts |
 | `Q` / `ESC` | Quit |
 
-## 🎨 LED Color Guide
+## LED Color Guide
 
 | Color | Meaning |
 |-------|---------|
-| 🔵 Blue | Idle / Ready |
-| 🟡 Yellow | Capturing image |
-| 🟢 Green | AI Processing |
-| 🟣 Purple | Generating speech |
-| ⚪ White | Playing audio |
-| 🔴 Red | Alert / Error |
-| 🔵+🟢 Cyan | Mode change |
+| Blue | Idle / Ready |
+| Yellow | Capturing image |
+| Green | AI Processing |
+| Purple | Generating speech |
+| White | Playing audio |
+| Red | Alert / Error |
+| Cyan | Mode change |
 
-## 🧠 BLIP Description Modes
+## BLIP Description Modes
 
 | Mode | Description | Use Case |
 |------|-------------|----------|
@@ -138,18 +138,18 @@ python3 main.py
 | **Short** | Brief 1-2 sentence summary | Quick check |
 | **Story** | Immersive narrative with atmosphere, emotions, sounds | Rich experience |
 
-## 🎯 YOLO Detection Features
+## YOLO Detection Features
 
-- Detects up to **10 people** simultaneously
-- **Distance estimation** using pinhole camera model
-- **Position tracking**: left, center, right
-- **Proximity alerts**:
-  - 🔴 Very close (< 1.5m) - Urgent warning
-  - 🟠 Close (< 3.0m) - Nearby notice
-  - 🟡 Medium (< 6.0m) - Detected
-  - 🟢 Far (> 6.0m) - Background
+- Detects up to 10 people simultaneously
+- Distance estimation using pinhole camera model
+- Position tracking: left, center, right
+- Proximity alerts:
+  - Very close (< 1.5m) - Urgent warning
+  - Close (< 3.0m) - Nearby notice
+  - Medium (< 6.0m) - Detected
+  - Far (> 6.0m) - Background
 
-## 🔌 Hardware Connections
+## Hardware Connections
 
 ### GPIO Wiring (Pi 3B+)
 
@@ -179,7 +179,7 @@ python3 main.py
 - **Video Stream**: UDP port 8080
 - **Command Channel**: TCP port 9090
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Camera stream not working
 ```bash
@@ -211,7 +211,7 @@ ping 10.42.0.50
 ssh abhiroop@10.42.0.50
 ```
 
-## 📊 Performance Notes
+## Performance Notes
 
 - YOLO detection runs at ~15-25 FPS on laptop with GPU
 - BLIP description takes 2-5 seconds per image
@@ -220,4 +220,4 @@ ssh abhiroop@10.42.0.50
 
 ---
 
-**Project Drishti** - Empowering the visually impaired with AI vision 👁️
+**Project Drishti** - Empowering the visually impaired with AI vision
