@@ -10,29 +10,29 @@ An AI-powered assistive device that helps blind people understand their surround
 ## System Architecture
 
 ```
-┌─────────────────────────┐     UDP Stream      ┌──────────────────────────┐
-│   Raspberry Pi 3B+      │ ──────────────────→  │       Laptop             │
+┌─────────────────────────┐     UDP Stream       ┌──────────────────────────┐
+│   Raspberry Pi 3B+      │ ──────────────────-  │       Laptop             │
 │                         │     (H264/MPEGTS)    │                          │
 │  ┌──────────┐           │                      │  ┌──────────────────┐    │
-│  │ Pi Camera │───→ rpicam-vid + ffmpeg          │  │ Stream Receiver  │    │
+│  │ Pi Camera│───--------- rpicam-vid + ffmpeg  │  │ Stream Receiver  │    │
 │  │  (5MP)   │           │                      │  └────────┬─────────┘    │
 │  └──────────┘           │                      │           │              │
 │                         │                      │  ┌────────▼─────────┐    │
 │  ┌──────────────────┐   │  TCP Commands        │  │  YOLOv8 Detector │    │
-│  │ GPIO Buttons     │───│──────────────────→   │  │  (People + Dist) │    │
+│  │ GPIO Buttons     │───│ ──────────────────   │  │  (People + Dist) │    │
 │  │ B1: Capture      │   │                      │  └────────┬─────────┘    │
 │  │ B2: Mode         │   │                      │           │              │
 │  │ B3: YOLO Alert   │   │                      │  ┌────────▼─────────┐    │
 │  └──────────────────┘   │                      │  │ BLIP Describer   │    │
 │                         │                      │  │ (3 modes)        │    │
-│  ┌──────────────────┐   │  Audio (SCP)         │  └────────┬─────────┘    │
-│  │ RGB LED          │←──│────────────────────  │           │              │
+│  ┌──────────────────┐   │    Audio (SCP)       │  └────────┬─────────┘    │
+│  │ RGB LED          │ ──│ ──────────────────── │           │              │
 │  │ Status Indicator │   │                      │  ┌────────▼─────────┐    │
 │  └──────────────────┘   │                      │  │  TTS Engine      │    │
 │                         │                      │  │  (gTTS)          │    │
 │  ┌──────────────────┐   │                      │  └──────────────────┘    │
-│  │ AUX Jack Output  │←──│──── Audio File ────  │                          │
-│  │ (Earphones)      │   │     via SCP          │                          │
+│  │ AUX Jack Output  │ ──│──── Audio File ────  │                          │
+│  │ (Earphones)      │   │     via SCP          │      LLM(local)          │
 │  └──────────────────┘   │                      │                          │
 └─────────────────────────┘                      └──────────────────────────┘
 ```
