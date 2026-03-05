@@ -154,17 +154,17 @@ python3 main.py
 ### GPIO Wiring (Pi 3B+)
 
 ```
-┌─── Pi GPIO Header ───┐
+┌─── Pi GPIO Header ── ─┐
 │                       │
 │  B1 ──── GPIO17       │ ← Button 1 (Capture)
 │  B2 ──── GPIO27       │ ← Button 2 (Mode)
 │  B3 ──── GPIO22       │ ← Button 3 (YOLO)
 │  GND ─── Common GND   │ ← All buttons share GND
 │                       │
-│  LED_R ── GPIO5  ─[R]─ │ ← Red (with resistor)
-│  LED_G ── GPIO6  ─[R]─ │ ← Green (with resistor)
-│  LED_B ── GPIO13 ─[R]─ │ ← Blue (with resistor)
-│  LED_GND ─ GND         │ ← LED common ground
+│  LED_R ── GPIO5  ─[R]─│ ← Red (with resistor)
+│  LED_G ── GPIO6  ─[R]─│ ← Green (with resistor)
+│  LED_B ── GPIO13 ─[R]─│ ← Blue (with resistor)
+│  LED_GND ─ GND        │ ← LED common ground
 │                       │
 │  3.5mm AUX Jack ──────│ ← Audio output (earphones)
 │  Ethernet ─────────── │ ← Connected to laptop (10.42.0.50)
